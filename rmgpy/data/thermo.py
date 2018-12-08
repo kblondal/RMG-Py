@@ -1264,11 +1264,12 @@ class ThermoDatabase(object):
             'H': rmgpy.quantity.Energy(-2.778, 'eV/molecule'),
             'O': rmgpy.quantity.Energy(-4.485, 'eV/molecule')
         }
-        # These are for Pt, from Abild-Pedersen Phys Rev Lett 2007
+        # These are for Pt(111), based on DFT results by Jelena Jelic and Felix Studt at Karlsruhe Institute of Technology
         deltaAtomicAdosrptionEnergy = {
-            'C': rmgpy.quantity.Energy(-6.364, 'eV/molecule'),
-            'H': rmgpy.quantity.Energy(-2.778, 'eV/molecule'), # UNKNOWN!!! (using Ni value from Blaylock)
-            'O': rmgpy.quantity.Energy(-3.481, 'eV/molecule')
+            'C': rmgpy.quantity.Energy(-6.750, 'eV/molecule'),
+            'H': rmgpy.quantity.Energy(-0.240, 'eV/molecule'), 
+            'O': rmgpy.quantity.Energy(-1.030, 'eV/molecule'),
+            'N': rmgpy.quantity.Energy(0.525, 'eV/molecule')
         }
         for element in 'CHO':
             deltaAtomicAdosrptionEnergy[element].value_si =  bindingEnergies[element].value_si - deltaAtomicAdosrptionEnergy[element].value_si
