@@ -1,0 +1,35 @@
+Created 4 new edge reactions
+    H(4) + C2H5(30) <=> C2H6(29)
+    CH2(S)(19) + CH4(1) <=> C2H6(29)
+    C2H6(29) + O2(3) <=> HO2(11) + C2H5(30)
+    CH3OO(39) + C2H6(29) <=> C2H5(30) + CH3OOH(42)
+
+After model enlargement:
+    The model core has 7 species and 2 reactions
+    The model edge has 40 species and 157 reactions
+
+
+Saving current model core to Chemkin file...
+Traceback (most recent call last):
+  File "rmg.py", line 173, in <module>
+    main()
+  File "rmg.py", line 167, in main
+    rmg.execute(**kwargs)
+  File "/home/kblondal/RMG-pyGitHub/RMG-Py/rmgpy/rmg/main.py", line 850, in execute
+    self.saveEverything()
+  File "/home/kblondal/RMG-pyGitHub/RMG-Py/rmgpy/rmg/main.py", line 1374, in saveEverything
+    self.notify()
+  File "/home/kblondal/RMG-pyGitHub/RMG-Py/rmgpy/util.py", line 110, in notify
+    observer.update(self)
+  File "rmgpy/chemkin.pyx", line 2246, in rmgpy.chemkin.ChemkinWriter.update
+    saveChemkinFiles(rmg)
+  File "rmgpy/chemkin.pyx", line 2150, in rmgpy.chemkin.saveChemkinFiles
+    saveChemkin(rmg.reactionModel, this_chemkin_path, latest_chemkin_verbose_path, latest_dictionary_path, latest_transport_path, False)
+  File "rmgpy/chemkin.pyx", line 2128, in rmgpy.chemkin.saveChemkin
+    saveChemkinFile(path, speciesList, rxnList, verbose = False, checkForDuplicates=False) # We should already have marked everything as duplicates by now
+  File "rmgpy/chemkin.pyx", line 1979, in rmgpy.chemkin.saveChemkinFile
+    f.write(writeKineticsEntry(rxn, speciesList=species, verbose=verbose))
+  File "rmgpy/chemkin.pyx", line 1694, in rmgpy.chemkin.writeKineticsEntry
+    arrhenius.A.value_si / (arrhenius.T0.value_si ** arrhenius.n.value_si) * kinetics.A.getConversionFactorFromSItoCM(),
+AttributeError: 'rmgpy.kinetics.falloff.Troe' object has no attribute 'A'
+
