@@ -41,7 +41,7 @@ import logging
 import os
 import numpy
 import urllib
-from collections import OrderedDict
+from collections import OrderedDict, defaultdict
 import itertools
 from copy import deepcopy
 
@@ -682,7 +682,7 @@ class Bond(Edge):
         Return ``True`` if the bond represents a hydrogen bond or ``False`` if
         not.
         """
-        return self.isOrder(0)
+        return self.isOrder(0.1)
     
     def incrementOrder(self):
         """
@@ -733,7 +733,30 @@ class Bond(Edge):
                     raise gr.ActionError('Unable to update Bond due to CHANGE_BOND action: Invalid order "{0}".'.format(action[2]))
         else:
             raise gr.ActionError('Unable to update GroupBond: Invalid action {0}.'.format(action))
-        
+
+    def get_bond_string(self):
+        """
+        Represent the bond object as a string (eg. 'C#N'). The returned string is independent of the atom ordering, with
+        the atom labels in alphabetical order (i.e. 'C-H' is possible but not 'H-C')
+        :return: str
+        """
+        bond_symbol_mapping = {0.1: '~', 1: '-', 1.5: ':', 2: '=', 3: '#'}
+        atom_labels = [self.atom1.symbol, self.atom2.symbol]
+        atom_labels.sort()
+        try:
+            bond_symbol = bond_symbol_mapping[self.getOrderNum()]
+        except KeyError:
+            # Direct lookup didn't work, but before giving up try
+            # with the isOrder() method which allows a little latitude
+            # for floating point errors.
+            for order,symbol in bond_symbol_mapping.iteritems():
+                if self.isOrder(order):
+                    bond_symbol = symbol
+                    break
+            else: # didn't break
+                bond_symbol = '<bond order {0}>'.format(self.getOrderNum())
+        return '{0}{1}{2}'.format(atom_labels[0], bond_symbol, atom_labels[1])
+
 
 #################################################################################
     
@@ -1655,7 +1678,7 @@ class Molecule(Graph):
                     atm_cov = atm_covs[0]
                 if (atm_cov.isOxygen() or atm_cov.isNitrogen()): #this H can be H-bonded
                     for k,atm2 in enumerate(ONatoms):
-                        if all([q.order != 0 for q in atm2.bonds.values()]): #atm2 not already H bonded
+                        if all([q.order != 0.1 for q in atm2.bonds.values()]): #atm2 not already H bonded
                             dist = len(find_shortest_path(atm1,atm2))-1
                             if dist > 3:
                                 j = ONinds[k]
@@ -1678,12 +1701,12 @@ class Molecule(Graph):
         structs = []
         Hbonds = self.find_H_bonds()
         for i,bd1 in enumerate(Hbonds):
-            molc = deepcopy(self)
+            molc = self.copy(deep=True)
             molc.addBond(Bond(molc.atoms[bd1[0]],molc.atoms[bd1[1]],order=0.1))
             structs.append(molc)
             for j,bd2 in enumerate(Hbonds):
                 if j<i and bd1[0] != bd2[0] and bd1[1] != bd2[1]:
-                    molc = deepcopy(self)
+                    molc = self.copy(deep=True)
                     molc.addBond(Bond(molc.atoms[bd1[0]],molc.atoms[bd1[1]],order=0.1))
                     molc.addBond(Bond(molc.atoms[bd2[0]],molc.atoms[bd2[1]],order=0.1))
                     structs.append(molc)
@@ -2298,6 +2321,19 @@ class Molecule(Graph):
             else:
                 neighbors = self.getNthNeighbor(neighbors, distanceList, ignoreList, n+1)
         return neighbors
+
+    def enumerate_bonds(self):
+        """
+        Count the number of each type of bond (e.g. 'C-H', 'C=C') present in the molecule
+        :return: dictionary, with bond strings as keys and counts as values
+        """
+        bond_count = defaultdict(int)
+        bonds = self.getAllEdges()
+
+        for bond in bonds:
+            bond_count[bond.get_bond_string()] += 1
+
+        return dict(bond_count)
 
 
 # this variable is used to name atom IDs so that there are as few conflicts by 
