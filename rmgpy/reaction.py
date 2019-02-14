@@ -5,7 +5,7 @@
 #                                                                             #
 # RMG - Reaction Mechanism Generator                                          #
 #                                                                             #
-# Copyright (c) 2002-2018 Prof. William H. Green (whgreen@mit.edu),           #
+# Copyright (c) 2002-2019 Prof. William H. Green (whgreen@mit.edu),           #
 # Prof. Richard H. West (r.west@neu.edu) and the RMG Team (rmg_dev@mit.edu)   #
 #                                                                             #
 # Permission is hereby granted, free of charge, to any person obtaining a     #
@@ -53,7 +53,7 @@ import rmgpy.constants as constants
 from rmgpy.molecule.molecule import Molecule, Atom
 from rmgpy.molecule.element import Element
 from rmgpy.species import Species
-from rmgpy.kinetics.arrhenius import Arrhenius  #PyDev: @UnresolvedImport
+from rmgpy.kinetics.arrhenius import Arrhenius #PyDev: @UnresolvedImport
 from rmgpy.kinetics import KineticsData, ArrheniusEP, ThirdBody, Lindemann, Troe, Chebyshev, \
             PDepArrhenius, MultiArrhenius, MultiPDepArrhenius, getRateCoefficientUnitsFromReactionOrder, \
             StickingCoefficient, SurfaceArrhenius, SurfaceArrheniusBEP, StickingCoefficientBEP  #PyDev: @UnresolvedImport
@@ -620,8 +620,8 @@ class Reaction:
                 self.k_effective_cache[T] = k
             return k
         else:
-            return  self.kinetics.getRateCoefficient(T, P)
-    
+            return self.kinetics.getRateCoefficient(T, P)
+
     def getSurfaceRateCoefficient(self, T, surfaceSiteDensity):
         """
         Return the overall surface rate coefficient for the forward reaction at
@@ -660,54 +660,6 @@ class Reaction:
         raise NotImplementedError("Can't getSurfaceRateCoefficient for kinetics type {!r}".format(type(self.kinetics)))
 
 
-    def getRate(self, T, P, conc, totalConc=-1.0):
-        """
-        Return the net rate of reaction at temperature `T` and pressure `P`. The
-        parameter `conc` is a map with species as keys and concentrations as
-        values. A reactant not found in the `conc` map is treated as having zero
-        concentration.
-
-        If passed a `totalConc`, it won't bother recalculating it.
-        """
-
-        cython.declare(rateConstant=cython.double, equilibriumConstant=cython.double)
-        cython.declare(forward=cython.double, reverse=cython.double, speciesConc=cython.double)
-
-        # Calculate total concentration
-        if totalConc == -1.0:
-            totalConc=sum( conc.values() )
-
-        # Evaluate rate constant
-        if isinstance(self.kinetics, (ThirdBody, Lindemann, Troe)):
-            P = self.kinetics.getEffectivePressure(P, conc)
-        rateConstant = self.getRateCoefficient(T, P)
-
-        # Evaluate equilibrium constant
-        equilibriumConstant = self.getEquilibriumConstant(T)
-
-        # Evaluate forward concentration product
-        forward = 1.0
-        for reactant in self.reactants:
-            if reactant in conc:
-                speciesConc = conc[reactant]
-                forward = forward * speciesConc
-            else:
-                forward = 0.0
-                break
-
-        # Evaluate reverse concentration product
-        reverse = 1.0
-        for product in self.products:
-            if product in conc:
-                speciesConc = conc[product]
-                reverse = reverse * speciesConc
-            else:
-                reverse = 0.0
-                break
-
-        # Return rate
-        return rateConstant * (forward - reverse / equilibriumConstant)
-
     def fixDiffusionLimitedA(self, T):
         """
         Decrease the pre-exponential factor (A) by the diffusion factor
@@ -742,8 +694,10 @@ class Reaction:
         are forced to have a non-negative barrier.
         """
         cython.declare(H0=cython.double, H298=cython.double, Ea=cython.double)
+
         if self.kinetics is None:
             raise KineticsError("Cannot fix barrier height for reactions with no kinetics attribute")
+
         H298 = self.getEnthalpyOfReaction(298)
         H0 = sum([spec.getThermoData().E0.value_si for spec in self.products]) \
             - sum([spec.getThermoData().E0.value_si for spec in self.reactants])
@@ -765,7 +719,6 @@ class Reaction:
         if forcePositive and isinstance(self.kinetics, (Arrhenius, StickingCoefficient)) and self.kinetics.Ea.value_si < 0:
             self.kinetics.comment += "\nEa raised from {0:.1f} to 0 kJ/mol.".format(self.kinetics.Ea.value_si/1000.)
             logging.info("For reaction {1!s} Ea raised from {0:.1f} to 0 kJ/mol.".format(self.kinetics.Ea.value_si/1000., self))
-
             self.kinetics.Ea.value_si = 0
         if self.kinetics.isPressureDependent() and self.network_kinetics is not None:
             Ea = self.network_kinetics.Ea.value_si
@@ -1063,15 +1016,17 @@ class Reaction:
             productSulfurs    = [sum([1 for atom in  product.molecule[0].atoms if atom.isSulfur()])   for product  in products ]
             reactantChlorines = [sum([1 for atom in reactant.molecule[0].atoms if atom.isChlorine()]) for reactant in reactants]
             productChlorines  = [sum([1 for atom in  product.molecule[0].atoms if atom.isChlorine()]) for product  in products ]
-            reactantIodines   = [sum([1 for atom in reactant.molecule[0].atoms if atom.isChlorine()]) for reactant in reactants]
-            productIodines    = [sum([1 for atom in  product.molecule[0].atoms if atom.isChlorine()]) for product  in products ]
+            reactantIodines   = [sum([1 for atom in reactant.molecule[0].atoms if atom.isIodine()]) for reactant in reactants]
+            productIodines    = [sum([1 for atom in  product.molecule[0].atoms if atom.isIodine()]) for product  in products ]
+            reactantFluorines = [sum([1 for atom in reactant.molecule[0].atoms if atom.isFluorine()]) for reactant in reactants]
+            productFluorines  = [sum([1 for atom in  product.molecule[0].atoms if atom.isFluorine()]) for product  in products ]
             
             # Sort the reactants and products by C/O/N/S numbers
-            reactants = [(carbon, oxygen, nitrogen, silicon, sulfur, chlorine, iodine, reactant) for carbon, oxygen, nitrogen, silicon, sulfur, chlorine, iodine, reactant
-                         in zip(reactantCarbons,reactantOxygens,reactantNitrogens,reactantSilicons,reactantSulfurs,reactantChlorines, reactantIodines, reactants)]
+            reactants = [(carbon, oxygen, nitrogen, silicon, sulfur, chlorine, iodine, fluorine, reactant) for carbon, oxygen, nitrogen, silicon, sulfur, chlorine, iodine, fluorine, reactant
+                         in zip(reactantCarbons,reactantOxygens,reactantNitrogens,reactantSilicons,reactantSulfurs,reactantChlorines, reactantIodines, reactantFluorines, reactants)]
             reactants.sort()
-            products = [(carbon, oxygen, nitrogen, silicon, sulfur, chlorine, iodine, product) for carbon, oxygen, nitrogen, silicon, sulfur, chlorine, iodine, product
-                        in zip(productCarbons,productOxygens,productNitrogens,productSilicons,productSulfurs,productChlorines, productIodines, products)]
+            products = [(carbon, oxygen, nitrogen, silicon, sulfur, chlorine, iodine, fluorine, product) for carbon, oxygen, nitrogen, silicon, sulfur, chlorine, iodine, fluorine, product
+                        in zip(productCarbons,productOxygens,productNitrogens,productSilicons,productSulfurs,productChlorines, productIodines, productFluorines, products)]
             products.sort()
             
             while len(reactants) > 1 and len(products) > 1:
@@ -1362,8 +1317,6 @@ def isomorphic_species_lists(list1, list2, check_identical=False, only_check_lab
                          
     Returns True if the lists are isomorphic/identical & false otherwise
     """
-                
-################################################################################
 
     def same(object1, object2, _check_identical=check_identical, _only_check_label=only_check_label):
         if _only_check_label:

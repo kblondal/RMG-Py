@@ -5,7 +5,7 @@
 #                                                                             #
 # RMG - Reaction Mechanism Generator                                          #
 #                                                                             #
-# Copyright (c) 2002-2018 Prof. William H. Green (whgreen@mit.edu),           #
+# Copyright (c) 2002-2019 Prof. William H. Green (whgreen@mit.edu),           #
 # Prof. Richard H. West (r.west@neu.edu) and the RMG Team (rmg_dev@mit.edu)   #
 #                                                                             #
 # Permission is hereby granted, free of charge, to any person obtaining a     #
@@ -363,7 +363,7 @@ class RMG(util.Subject):
 
         #check libraries
         self.checkLibraries()
-
+        
         if self.bindingEnergies:
             self.database.thermo.setDeltaAtomicAdsorptionEnergies(self.bindingEnergies)
 
@@ -943,7 +943,7 @@ class RMG(util.Subject):
             logging.exception('Could not generate Cantera files due to EnvironmentError. Check read\write privileges in output directory.')
         except Exception:
             logging.exception('Could not generate Cantera files for some reason.')
-
+        
         self.check_model()
         # Write output file
         logging.info('')
@@ -1412,10 +1412,6 @@ class RMG(util.Subject):
         logging.log(level, '# P.I.s:   William H. Green (whgreen@mit.edu)           #')
         logging.log(level, '#          Richard H. West (r.west@neu.edu)             #')
         logging.log(level, '# Website: http://reactionmechanismgenerator.github.io/ #')
-        logging.log(level, '#                                                       #')
-        logging.log(level, '#  This heterogeneous catalysis branch developed by:    #')
-        logging.log(level, '#  Richard H. West (r.west@neu.edu)                     #')
-        logging.log(level, '#  C. Franklin Goldsmith (franklin_goldsmith@brown.edu) #')
         logging.log(level, '#########################################################\n')
     
         # Extract git commit from RMG-Py

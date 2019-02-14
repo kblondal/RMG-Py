@@ -5,7 +5,7 @@
 #                                                                             #
 # RMG - Reaction Mechanism Generator                                          #
 #                                                                             #
-# Copyright (c) 2002-2018 Prof. William H. Green (whgreen@mit.edu),           #
+# Copyright (c) 2002-2019 Prof. William H. Green (whgreen@mit.edu),           #
 # Prof. Richard H. West (r.west@neu.edu) and the RMG Team (rmg_dev@mit.edu)   #
 #                                                                             #
 # Permission is hereby granted, free of charge, to any person obtaining a     #
@@ -1065,18 +1065,6 @@ class Molecule(Graph):
                     numAtoms += 1
             return numAtoms
 
-    def getNumberOfRadicalElectrons(self):
-        """
-        Return the total number of radical electrons on all atoms in the
-        molecule. In this function, monoradical atoms count as one, biradicals
-        count as two, etc. 
-        """
-        cython.declare(numRadicals=cython.int, atom=Atom)
-        numRadicals = 0
-        for atom in self.vertices:
-            numRadicals += atom.radicalElectrons
-        return numRadicals
-    
     def getGasCopiesOfSurfaceMolecule(self):
         """
         Create an iterable of gas-phase (desorbed) copies of a surface-bound molecule.
@@ -1636,7 +1624,7 @@ class Molecule(Graph):
         While converting to an RDMolecule it will perceive aromaticity
         and removes Hydrogen atoms.
         """
-
+        
         return translator.toSMILES(self)
 
     def toRDKitMol(self, *args, **kwargs):
@@ -1678,7 +1666,7 @@ class Molecule(Graph):
                     atm_cov = atm_covs[0]
                 if (atm_cov.isOxygen() or atm_cov.isNitrogen()): #this H can be H-bonded
                     for k,atm2 in enumerate(ONatoms):
-                        if all([q.order != 0.1 for q in atm2.bonds.values()]): #atm2 not already H bonded
+                        if all([not numpy.isclose(0.1, q.order) for q in atm2.bonds.values()]): #atm2 not already H bonded
                             dist = len(find_shortest_path(atm1,atm2))-1
                             if dist > 3:
                                 j = ONinds[k]

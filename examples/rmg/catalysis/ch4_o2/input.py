@@ -1,10 +1,10 @@
 # Data sources
 database(
     thermoLibraries=['surfaceThermoPt', 'primaryThermoLibrary', 'thermo_DFT_CCSDTF12_BAC','DFT_QCI_thermo'],
-    reactionLibraries = [('CPOX_Pt/Deutschmann2006', False)],
+    reactionLibraries = [('Surface/CPOX_Pt/Deutschmann2006', False)],
     seedMechanisms = [],
     kineticsDepositories = ['training'],
-    kineticsFamilies = ['surface',],
+    kineticsFamilies = ['surface','default'],
     kineticsEstimator = 'rate rules',
     bindingEnergies = {
                        'C':(-6.364, 'eV/molecule'), # Pt(111)
