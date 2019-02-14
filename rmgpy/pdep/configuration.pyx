@@ -2,7 +2,7 @@
 #                                                                             #
 # RMG - Reaction Mechanism Generator                                          #
 #                                                                             #
-# Copyright (c) 2002-2018 Prof. William H. Green (whgreen@mit.edu),           #
+# Copyright (c) 2002-2019 Prof. William H. Green (whgreen@mit.edu),           #
 # Prof. Richard H. West (r.west@neu.edu) and the RMG Team (rmg_dev@mit.edu)   #
 #                                                                             #
 # Permission is hereby granted, free of charge, to any person obtaining a     #
@@ -225,6 +225,8 @@ cdef class Configuration:
         cdef list modes
         cdef int i
         
+        logging.debug('calculating density of states for {}'.format(self.__str__()))
+
         self.Elist = Elist
         self.activeJRotor = activeJRotor
         self.activeKRotor = activeKRotor
@@ -234,7 +236,7 @@ cdef class Configuration:
         for i, species in enumerate(self.species):
             modes.extend(species.conformer.getActiveModes(activeKRotor=activeKRotor, activeJRotor=activeJRotor))
         
-        if rmgmode:
+        if rmgmode or len(modes) == 0:
             # Include an arbitrary active rigid rotor if needed
             # The moments of inertia cancel in all subsequent calculations
             for mode in modes:

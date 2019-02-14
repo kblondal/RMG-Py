@@ -5,7 +5,7 @@
 #                                                                             #
 # RMG - Reaction Mechanism Generator                                          #
 #                                                                             #
-# Copyright (c) 2002-2018 Prof. William H. Green (whgreen@mit.edu),           #
+# Copyright (c) 2002-2019 Prof. William H. Green (whgreen@mit.edu),           #
 # Prof. Richard H. West (r.west@neu.edu) and the RMG Team (rmg_dev@mit.edu)   #
 #                                                                             #
 # Permission is hereby granted, free of charge, to any person obtaining a     #
@@ -49,7 +49,7 @@ from rmgpy.reaction import Reaction
 from rmgpy.kinetics import Arrhenius, SurfaceArrhenius,\
                     SurfaceArrheniusBEP, StickingCoefficient, StickingCoefficientBEP
 from rmgpy.molecule import Bond, GroupBond, Group, Molecule
-from rmgpy.molecule.resonance import generate_aromatic_resonance_structures
+from rmgpy.molecule.resonance import generate_optimal_aromatic_resonance_structures
 from rmgpy.species import Species
 
 from .common import saveEntry, ensure_species, find_degenerate_reactions, generate_molecule_combos,\
@@ -302,7 +302,7 @@ class ReactionRecipe:
                 elif (action[0] == 'FORM_BOND' and doForward) or (action[0] == 'BREAK_BOND' and not doForward):
                     if struct.hasBond(atom1, atom2):
                         raise InvalidActionError('Attempted to create an existing bond.')
-                    if info not in (1, 0, 'vdW'):  # todo: remove vdW and ensure 0 is correct replacement
+                    if info not in (1, 0): # Can only form single or vdW bonds
                         raise InvalidActionError('Attempted to create bond of type {:!r}'.format(info))
                     bond = GroupBond(atom1, atom2, order=[info]) if pattern else Bond(atom1, atom2, order=info)
                     struct.addBond(bond)
@@ -1546,6 +1546,7 @@ class KineticsFamily(Database):
         if self.forbidden is not None and self.forbidden.isMoleculeForbidden(molecule):
             return True
 
+
         return False
 
     def __createReaction(self, reactants, products, is_forward):
@@ -1901,7 +1902,7 @@ class KineticsFamily(Database):
                                         if productStructures is not None:
                                             rxn = self.__createReaction(reactantStructures, productStructures, forward)
                                             if rxn: rxnList.append(rxn)
-
+        
         # Termolecular reactants: A + B + C --> products
         elif len(reactants) == 2 and len(template.reactants) == 3:
             """
@@ -2097,6 +2098,7 @@ class KineticsFamily(Database):
                     continue  # to next reaction immediately
             rxnList = prunedList
 
+
         # If products is given, remove reactions from the reaction list that
         # don't generate the given products
         if products is not None:
@@ -2112,7 +2114,7 @@ class KineticsFamily(Database):
                 if prod_resonance:
                     for i, product in enumerate(products0):
                         if product.isCyclic:
-                            aromaticStructs = generate_aromatic_resonance_structures(product)
+                            aromaticStructs = generate_optimal_aromatic_resonance_structures(product)
                             if aromaticStructs:
                                 products0[i] = aromaticStructs[0]
 
@@ -2134,9 +2136,9 @@ class KineticsFamily(Database):
             reaction.pairs = self.getReactionPairs(reaction)
             reaction.template = self.getReactionTemplateLabels(reaction)
 
-            # Unlabel the atoms
-            for label, atom in reaction.labeledAtoms:
-                atom.label = ''
+            # Unlabel the atoms for both reactants and products
+            for species in itertools.chain(reaction.reactants, reaction.products):
+                species.clearLabeledAtoms()
             
             # We're done with the labeled atoms, so delete the attribute
             del reaction.labeledAtoms

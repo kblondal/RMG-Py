@@ -4,7 +4,7 @@
 #                                                                             #
 # RMG - Reaction Mechanism Generator                                          #
 #                                                                             #
-# Copyright (c) 2002-2018 Prof. William H. Green (whgreen@mit.edu),           #
+# Copyright (c) 2002-2019 Prof. William H. Green (whgreen@mit.edu),           #
 # Prof. Richard H. West (r.west@neu.edu) and the RMG Team (rmg_dev@mit.edu)   #
 #                                                                             #
 # Permission is hereby granted, free of charge, to any person obtaining a     #
@@ -112,7 +112,8 @@ cdef class HinderedRotor(Torsion):
     independently.
     """
     
-    def __init__(self, inertia=None, symmetry=1, barrier=None, fourier=None, rotationalConstant=None, quantum=False, semiclassical=True):
+    def __init__(self, inertia=None, symmetry=1, barrier=None, fourier=None, rotationalConstant=None, quantum=False,
+                 semiclassical=True, frequency=None):
         Torsion.__init__(self, symmetry, quantum)
         if inertia is not None and rotationalConstant is not None:
             raise ValueError('Only one of moment of inertia and rotational constant can be specified.')
@@ -123,6 +124,8 @@ cdef class HinderedRotor(Torsion):
         self.barrier = barrier
         self.fourier = fourier
         self.semiclassical = False if quantum else semiclassical
+        self.quantum = quantum
+        self.frequency = frequency if frequency is not None else 0.0
         
     def __repr__(self):
         """
@@ -204,8 +207,9 @@ cdef class HinderedRotor(Torsion):
                 V0 -= fourier[0,k] * (k+1) * (k+1)
             V0 /= constants.Na
             if V0 < 0:
-                raise NegativeBarrierException(" Hindered rotor barrier height is less than 0 \n     Try running cantherm in verbose mode, -v,  to identify which hindered rotor \n    Try changing the Hindered rotor fit to 'cosine'")
-#                 raise Exception("Hindered rotor barrier height is less than 0 \nTry running cantherm in verbose mode, -v,  to identify which hindered rotor \nTry changing the Hindered rotor fit to 'cosine'")
+                raise NegativeBarrierException("Hindered rotor barrier height is less than 0 \n     Try running Arkane"
+                                               "in verbose mode, -v, to identify which rotor caused the error\n"
+                                               "Also, try changing the Hindered rotor fit to 'cosine'")
             frequency = 1.0 / (2. * constants.pi) * sqrt(V0 / I)
         else:
             V0 = self._barrier.value_si / constants.Na

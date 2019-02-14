@@ -5,7 +5,7 @@
 #                                                                             #
 # RMG - Reaction Mechanism Generator                                          #
 #                                                                             #
-# Copyright (c) 2002-2018 Prof. William H. Green (whgreen@mit.edu),           #
+# Copyright (c) 2002-2019 Prof. William H. Green (whgreen@mit.edu),           #
 # Prof. Richard H. West (r.west@neu.edu) and the RMG Team (rmg_dev@mit.edu)   #
 #                                                                             #
 # Permission is hereby granted, free of charge, to any person obtaining a     #
@@ -130,6 +130,8 @@ class RMG(util.Subject):
     `trimolecularProductReversible`     ``True`` (default) to allow families with trimolecular products to react in the reverse direction, ``False`` otherwise
     `pressureDependence`                Whether to process unimolecular (pressure-dependent) reaction networks
     `quantumMechanics`                  Whether to apply quantum mechanical calculations instead of group additivity to certain molecular types.
+    `ml_estimator`                      To use thermo estimation with machine learning
+    `ml_settings`                       Settings for ML estimation
     `wallTime`                          The maximum amount of CPU time in the form DD:HH:MM:SS to expend on this job; used to stop gracefully so we can still get profiling information
     `kineticsdatastore`                 ``True`` if storing details of each kinetic database entry in text file, ``False`` otherwise
     ----------------------------------- ------------------------------------------------
@@ -200,6 +202,8 @@ class RMG(util.Subject):
         self.trimolecularProductReversible = None
         self.pressureDependence = None
         self.quantumMechanics = None
+        self.ml_estimator = None
+        self.ml_settings = None
         self.speciesConstraints = {}
         self.wallTime = '00:00:00:00'
         self.initializationTime = 0
@@ -359,7 +363,7 @@ class RMG(util.Subject):
 
         #check libraries
         self.checkLibraries()
-
+        
         if self.bindingEnergies:
             self.database.thermo.setDeltaAtomicAdsorptionEnergies(self.bindingEnergies)
 
@@ -745,7 +749,7 @@ class RMG(util.Subject):
                             if len(self.reactionModel.core.reactions) > 5:
                                 logging.error("Too many to print in detail")
                             else:
-                                from rmgpy.cantherm.output import prettify
+                                from arkane.output import prettify
                                 logging.error(prettify(repr(self.reactionModel.core.reactions)))
                             if self.generateSeedEachIteration:
                                 self.makeSeedMech()
@@ -899,6 +903,9 @@ class RMG(util.Subject):
             
             if reactionSystem.sensitiveSpecies and reactionSystem.sensConditions:
                 logging.info('Conducting sensitivity analysis of reaction system %s...' % (index+1))
+
+                if reactionSystem.sensitiveSpecies == ['all']:
+                    reactionSystem.sensitiveSpecies = self.reactionModel.core.species
                     
                 sensWorksheet = []
                 for spec in reactionSystem.sensitiveSpecies:
@@ -936,7 +943,7 @@ class RMG(util.Subject):
             logging.exception('Could not generate Cantera files due to EnvironmentError. Check read\write privileges in output directory.')
         except Exception:
             logging.exception('Could not generate Cantera files for some reason.')
-
+        
         self.check_model()
         # Write output file
         logging.info('')
@@ -1405,10 +1412,6 @@ class RMG(util.Subject):
         logging.log(level, '# P.I.s:   William H. Green (whgreen@mit.edu)           #')
         logging.log(level, '#          Richard H. West (r.west@neu.edu)             #')
         logging.log(level, '# Website: http://reactionmechanismgenerator.github.io/ #')
-        logging.log(level, '#                                                       #')
-        logging.log(level, '#  This heterogeneous catalysis branch developed by:    #')
-        logging.log(level, '#  Richard H. West (r.west@neu.edu)                     #')
-        logging.log(level, '#  C. Franklin Goldsmith (franklin_goldsmith@brown.edu) #')
         logging.log(level, '#########################################################\n')
     
         # Extract git commit from RMG-Py

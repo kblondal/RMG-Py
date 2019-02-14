@@ -5,7 +5,7 @@
 #                                                                             #
 # RMG - Reaction Mechanism Generator                                          #
 #                                                                             #
-# Copyright (c) 2002-2018 Prof. William H. Green (whgreen@mit.edu),           #
+# Copyright (c) 2002-2019 Prof. William H. Green (whgreen@mit.edu),           #
 # Prof. Richard H. West (r.west@neu.edu) and the RMG Team (rmg_dev@mit.edu)   #
 #                                                                             #
 # Permission is hereby granted, free of charge, to any person obtaining a     #
@@ -77,7 +77,7 @@ class KineticsRules(Database):
                   nodalDistance=None,
                   treeDistances=None
                   ):
-
+            
         if isinstance(kinetics,Arrhenius):
             kinetics = kinetics.toArrheniusEP()
         entry = Entry(

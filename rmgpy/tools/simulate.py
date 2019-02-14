@@ -5,7 +5,7 @@
 #                                                                             #
 # RMG - Reaction Mechanism Generator                                          #
 #                                                                             #
-# Copyright (c) 2002-2018 Prof. William H. Green (whgreen@mit.edu),           #
+# Copyright (c) 2002-2019 Prof. William H. Green (whgreen@mit.edu),           #
 # Prof. Richard H. West (r.west@neu.edu) and the RMG Team (rmg_dev@mit.edu)   #
 #                                                                             #
 # Permission is hereby granted, free of charge, to any person obtaining a     #
@@ -90,6 +90,8 @@ def simulate(rmg, diffusionLimited=True):
             
         if reactionSystem.sensitiveSpecies:
             logging.info('Conducting simulation and sensitivity analysis of reaction system %s...' % (index+1))
+            if reactionSystem.sensitiveSpecies == ['all']:
+                reactionSystem.sensitiveSpecies = rmg.reactionModel.core.species
         
         else:
             logging.info('Conducting simulation of reaction system %s...' % (index+1))

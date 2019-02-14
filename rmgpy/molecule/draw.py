@@ -5,7 +5,7 @@
 #                                                                             #
 # RMG - Reaction Mechanism Generator                                          #
 #                                                                             #
-# Copyright (c) 2002-2018 Prof. William H. Green (whgreen@mit.edu),           #
+# Copyright (c) 2002-2019 Prof. William H. Green (whgreen@mit.edu),           #
 # Prof. Richard H. West (r.west@neu.edu) and the RMG Team (rmg_dev@mit.edu)   #
 #                                                                             #
 # Permission is hereby granted, free of charge, to any person obtaining a     #
@@ -315,7 +315,7 @@ class MoleculeDrawer:
         """
         atoms = self.molecule.atoms
         Natoms = len(atoms)
-
+        
 
         
         # Initialize array of coordinates
@@ -341,7 +341,6 @@ class MoleculeDrawer:
         # Decide whether we can use RDKit or have to generate coordinates ourselves
         for atom in self.molecule.atoms:
             if atom.charge != 0:
-                 flag_charge = 1
                  useRDKit = False
                  break
         else: # didn't break
@@ -1111,7 +1110,6 @@ class MoleculeDrawer:
                 self.__drawLine(cr, x1 + du, y1 + dv, x2 + du, y2 + dv, dashed=True)
             else:
                 self.__drawLine(cr, x1, y1, x2, y2)
-
         else:
             # Draw bond on skeleton
             self.__drawLine(cr, x1, y1, x2, y2)
@@ -1135,7 +1133,7 @@ class MoleculeDrawer:
                 self.__drawLine(cr, x1 - du + dx, y1 - dv + dy, x2 - du - dx, y2 - dv - dy)
                 self.__drawLine(cr, x1 + du + dx, y1 + dv + dy, x2 + du - dx, y2 + dv - dy)
                 self.__drawLine(cr, x1 + 2 * du + dx, y1 + 2 * dv + dy, x2 + 2 * du - dx, y2 + 2 * dv - dy)
-        
+
     def __renderAtom(self, symbol, atom, x0, y0, cr, heavyFirst=True, drawLonePairs=False):
         """
         Render the `label` for an atom centered around the coordinates (`x0`, `y0`)

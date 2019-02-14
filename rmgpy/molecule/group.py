@@ -5,7 +5,7 @@
 #                                                                             #
 # RMG - Reaction Mechanism Generator                                          #
 #                                                                             #
-# Copyright (c) 2002-2018 Prof. William H. Green (whgreen@mit.edu),           #
+# Copyright (c) 2002-2019 Prof. William H. Green (whgreen@mit.edu),           #
 # Prof. Richard H. West (r.west@neu.edu) and the RMG Team (rmg_dev@mit.edu)   #
 #                                                                             #
 # Permission is hereby granted, free of charge, to any person obtaining a     #
@@ -510,7 +510,7 @@ class GroupAtom(Vertex):
         Returns: list of the number of bonds currently on the :class:GroupAtom
 
         If the argument wildcards is turned off then any bonds with multiple
-        options for bond orders will not be counted.
+        options for bond orders will not be counted
         """
         #count up number of bonds
         single = 0; rDouble = 0; oDouble = 0; sDouble = 0; triple = 0; quadruple = 0; benzene = 0
@@ -563,6 +563,7 @@ class GroupAtom(Vertex):
                           'Ne':4,
                           'Cl':3,
                           'Ar':4,
+                          'X':0,
         }
 
         for elementLabel in allElements:
@@ -854,6 +855,9 @@ class GroupBond(Edge):
         if 2.5 in newOrder:
             newOrder.remove(2.5)
             newOrder.add(2)
+        # Allow formation of benzene bonds if a double bond can be formed
+        if 2 in newOrder:
+            newOrder.add(1.5)
         # Set the new bond orders
         self.order = list(newOrder)
 

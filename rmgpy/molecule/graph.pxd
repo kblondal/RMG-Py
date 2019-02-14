@@ -2,7 +2,7 @@
 #                                                                             #
 # RMG - Reaction Mechanism Generator                                          #
 #                                                                             #
-# Copyright (c) 2002-2018 Prof. William H. Green (whgreen@mit.edu),           #
+# Copyright (c) 2002-2019 Prof. William H. Green (whgreen@mit.edu),           #
 # Prof. Richard H. West (r.west@neu.edu) and the RMG Team (rmg_dev@mit.edu)   #
 #                                                                             #
 # Permission is hereby granted, free of charge, to any person obtaining a     #
@@ -70,7 +70,7 @@ cdef Vertex _getEdgeVertex1(Edge edge)
 
 cdef Vertex _getEdgeVertex2(Edge edge)
 
-cdef class Graph:
+cdef class Graph(object):
 
     cdef public list vertices
     
@@ -151,7 +151,11 @@ cdef class Graph:
     cpdef list getRelevantCycles(self)
 
     cpdef list _sortCyclicVertices(self, list vertices)
+
+    cpdef int getMaxCycleOverlap(self)
     
     cpdef list getLargestRing(self, Vertex vertex)
     
     cpdef bint isMappingValid(self, Graph other, dict mapping, bint equivalent=?) except -2
+
+    cpdef list get_edges_in_cycle(self, list vertices, bint sort=?)

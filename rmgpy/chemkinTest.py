@@ -5,7 +5,7 @@
 #                                                                             #
 # RMG - Reaction Mechanism Generator                                          #
 #                                                                             #
-# Copyright (c) 2002-2018 Prof. William H. Green (whgreen@mit.edu),           #
+# Copyright (c) 2002-2019 Prof. William H. Green (whgreen@mit.edu),           #
 # Prof. Richard H. West (r.west@neu.edu) and the RMG Team (rmg_dev@mit.edu)   #
 #                                                                             #
 # Permission is hereby granted, free of charge, to any person obtaining a     #
@@ -576,12 +576,21 @@ Euclidian distance = 0
         Also checks that reaction rate was not modified in the process.
         """
         for index, comment in enumerate(self.comments_list):
+            # Clear any leftover kinetics comments
+            self.reaction.kinetics.comment = ''
             previous_rate = self.reaction.kinetics.A.value_si
             new_rxn = readReactionComments(self.reaction, comment)
             new_rate = new_rxn.kinetics.A.value_si
 
             self.assertEqual(new_rxn.degeneracy, self.degeneracy_list[index], 'wrong degeneracy was stored')
             self.assertEqual(previous_rate, new_rate)
+
+            # Check that the comment only appears once in the kinetics comment
+            if new_rxn.degeneracy != 1:
+                self.assertEqual(new_rxn.kinetics.comment.count('Multiplied by reaction path degeneracy {}'.format(new_rxn.degeneracy)), 1,
+                                 'Reaction degeneracy comment duplicated while reading Chemkin comments')
+            else:
+                self.assertTrue('Multiplied by reaction path degeneracy' not in new_rxn.kinetics.comment)
 
     def testRemoveLineBreaks(self):
         """

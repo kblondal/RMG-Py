@@ -2,7 +2,7 @@
 #                                                                             #
 # RMG - Reaction Mechanism Generator                                          #
 #                                                                             #
-# Copyright (c) 2002-2018 Prof. William H. Green (whgreen@mit.edu),           #
+# Copyright (c) 2002-2019 Prof. William H. Green (whgreen@mit.edu),           #
 # Prof. Richard H. West (r.west@neu.edu) and the RMG Team (rmg_dev@mit.edu)   #
 #                                                                             #
 # Permission is hereby granted, free of charge, to any person obtaining a     #
@@ -36,5 +36,7 @@ cpdef float calculateBondSymmetryNumber(Molecule molecule, Atom atom1, Atom atom
 cpdef float calculateAxisSymmetryNumber(Molecule molecule) except -1
 
 cpdef float calculateCyclicSymmetryNumber(Molecule molecule) except -1
+
+cpdef bint _indistinguishable(Atom atom1, Atom atom2) except -2
 
 cpdef float calculateSymmetryNumber(Molecule molecule) except -1

@@ -5,7 +5,7 @@
 #                                                                             #
 # RMG - Reaction Mechanism Generator                                          #
 #                                                                             #
-# Copyright (c) 2002-2018 Prof. William H. Green (whgreen@mit.edu),           #
+# Copyright (c) 2002-2019 Prof. William H. Green (whgreen@mit.edu),           #
 # Prof. Richard H. West (r.west@neu.edu) and the RMG Team (rmg_dev@mit.edu)   #
 #                                                                             #
 # Permission is hereby granted, free of charge, to any person obtaining a     #
@@ -253,7 +253,11 @@ library instead, depending on the main bath gas (N2 or Ar/He, respectively)\n"""
                         label=os.path.dirname(library_file)[len(path)+1:]
                         logging.info('Loading kinetics library {0} from {1}...'.format(label, library_file))
                         library = KineticsLibrary(label=label)
-                        library.load(library_file, self.local_context, self.global_context)
+                        try:
+                            library.load(library_file, self.local_context, self.global_context)
+                        except:
+                            logging.error("Problem loading reaction library {0!r}".format(library_file))
+                            raise
                         self.libraries[library.label] = library
                         self.libraryOrder.append((library.label,'Reaction Library'))
 
@@ -544,8 +548,8 @@ and immediately used in input files without any additional changes.
                 try:
                     reaction_list.extend(family.generateReactions(molecules, products=products, prod_resonance=prod_resonance))
                 except:
-                    print("Problem family: {}".format(label))
-                    print("Problem reactants: {}".format(molecules))
+                    logging.error("Problem family: {}".format(label))
+                    logging.error("Problem reactants: {}".format(molecules))
                     raise
 
         for reactant in molecules:

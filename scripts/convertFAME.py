@@ -5,7 +5,7 @@
 #                                                                             #
 # RMG - Reaction Mechanism Generator                                          #
 #                                                                             #
-# Copyright (c) 2002-2018 Prof. William H. Green (whgreen@mit.edu),           #
+# Copyright (c) 2002-2019 Prof. William H. Green (whgreen@mit.edu),           #
 # Prof. Richard H. West (r.west@neu.edu) and the RMG Team (rmg_dev@mit.edu)   #
 #                                                                             #
 # Permission is hereby granted, free of charge, to any person obtaining a     #
@@ -29,7 +29,9 @@
 ###############################################################################
 
 """
-Convert a FAME input file to a MEASURE input file.  MEASURE is the previous version of CanTherm.
+Convert a FAME input file to a MEASURE input file.
+MEASURE is the previous version of CanTherm.
+CanTherm is the previous version of Arkane.
 """
 
 import argparse
@@ -40,7 +42,7 @@ from rmgpy.molecule import Molecule
 import rmgpy.constants as constants
 from rmgpy.quantity import Quantity, Energy
 
-from rmgpy.cantherm.pdep import PressureDependenceJob
+from arkane.pdep import PressureDependenceJob
 
 from rmgpy.pdep import Network, Configuration, SingleExponentialDown
 from rmgpy.species import Species, TransitionState
@@ -478,7 +480,7 @@ if __name__ == '__main__':
 
     for fstr in args.file:
 
-        # Construct CanTherm job from FAME input
+        # Construct Arkane job from FAME input
         job = loadFAMEInput(fstr, moleculeDict)
         
         if Emax is not None:

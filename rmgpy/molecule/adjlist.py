@@ -5,7 +5,7 @@
 #                                                                             #
 # RMG - Reaction Mechanism Generator                                          #
 #                                                                             #
-# Copyright (c) 2002-2018 Prof. William H. Green (whgreen@mit.edu),           #
+# Copyright (c) 2002-2019 Prof. William H. Green (whgreen@mit.edu),           #
 # Prof. Richard H. West (r.west@neu.edu) and the RMG Team (rmg_dev@mit.edu)   #
 #                                                                             #
 # Permission is hereby granted, free of charge, to any person obtaining a     #
@@ -93,9 +93,8 @@ class ConsistencyChecker(object):
                 
             theoretical = valence - order - atom.radicalElectrons - 2*atom.lonePairs
 
-            if np.isclose(-0.1, theoretical):
-                pass
-            elif atom.charge != theoretical:
+            if not (-0.301 < atom.charge - theoretical < 0.301):
+                # It should be 0, but -0.1 is caused by a Hydrogen bond
                 raise InvalidAdjacencyListError(
                     ('Invalid valency for atom {symbol} ({type}) with {radicals} unpaired electrons, '
                     '{lonePairs} pairs of electrons, {charge} charge, and bonds [{bonds}].'

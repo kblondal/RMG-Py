@@ -16,6 +16,26 @@ developers will get back to you as soon as we can.  You can also search for your
 page to see if there are already solutions in development.  Alternatively, you can email us at
 rmg_dev@mit.edu
 
+Installation on a Windows Platform
+====================================
+
+Due to difficulties with dependencies, installation on Windows directly is no longer supported. Instead, it is
+recommended to run a Linux virtual machine from Windows and follow either the instructions for basic users
+(binary installation using Anaconda) or the instructions for developers. Alternatively, it is also possible to install
+RMG in the Ubuntu subsystem now available on Windows 10.
+
+.. toctree::
+    :maxdepth: 1
+
+    virtualMachineSetup
+    linuxSubsystem
+
+For users unfamiliar with bash or Linux, we recommend looking at online tutorials such as the one
+`here <https://www.guru99.com/unix-linux-tutorial.html>`_. To start out
+with, we recommend looking at the following tutorials: Linux vs. Windows, Terminal vs File Manager, and Must Know
+Linux/Unix Commands.
+
+
 For Basic Users: Binary Installation Using Anaconda
 ===================================================
 
@@ -28,8 +48,6 @@ RMG's thermodynamic and kinetics databases.
     :maxdepth: 1
     
     anacondaUser
-    anacondaUserWindows
-    windowsEnvironment
 
 
 For Developers: Installation by Source Using Anaconda Environment
@@ -44,20 +62,23 @@ source code updates and patches through Github.
     :maxdepth: 1
     
     anacondaDeveloper
-    anacondaDeveloperWindows
-    windowsEnvironment
     updatingSourceCode
 
-For Developers: Direct Installation by Source without Anaconda
-==============================================================
+Archive of Unsupported Installation Methods
+===========================================
 
-The installation approach in this section is not recommended and also not maintained by RMG developer team. This is only a record for people who cannot use Anaconda.
+Below are old installation techniques that are no longer supported, including instructions for installation without
+using Anaconda and the old installation instructions for Windows. These instructions are no longer maintained, and are
+not recommended for use.
 
 .. toctree::
     :maxdepth: 1
     
     linux
     macos
+    anacondaUserWindows
+    anacondaDeveloperWindows
+    windowsEnvironment
 
 Dependencies
 ============

@@ -1,11 +1,8 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
 ###############################################################################
 #                                                                             #
 # RMG - Reaction Mechanism Generator                                          #
 #                                                                             #
-# Copyright (c) 2002-2018 Prof. William H. Green (whgreen@mit.edu),           #
+# Copyright (c) 2002-2019 Prof. William H. Green (whgreen@mit.edu),           #
 # Prof. Richard H. West (r.west@neu.edu) and the RMG Team (rmg_dev@mit.edu)   #
 #                                                                             #
 # Permission is hereby granted, free of charge, to any person obtaining a     #
@@ -377,7 +374,7 @@ def _readKineticsReaction(line, speciesDict, Aunits, Eunits):
             if re.match('[0-9.]+',product):
                 logging.warning("Looks like reaction {0!r} has fractional stoichiometry, which RMG cannot handle. Ignoring".format(line))
                 raise ChemkinError('Skip reaction!')
-            raise ChemkinError('Unexpected product "{0}" in reaction {1}.'.format(product, reaction))
+            raise ChemkinError('Unexpected product "{0}" in reaction {1} from line {2}.'.format(product, reaction,line))
         else:
             productSpecies = speciesDict[product]
             if not productSpecies.reactive:
@@ -678,8 +675,8 @@ def readReactionComments(reaction, comments, read = True):
             # undo the kinetic manipulation caused by setting degneracy
             if reaction.kinetics:
                 reaction.kinetics.changeRate(1./degen)
-            # still add kinetic comment
-            reaction.kinetics.comment += line.strip() + "\n"
+            # do not add comment because setting degeneracy does so already
+            reaction.kinetics.comment += "\n"
 
         elif line.strip() != '':
             # Any lines which are commented out but don't have any specific flag are simply kinetics comments
@@ -1573,8 +1570,10 @@ def writeReactionString(reaction, javaLibrary = False):
 def writeKineticsEntry(reaction, speciesList, verbose = True, javaLibrary = False, commented=False):
     """
     Return a string representation of the reaction as used in a Chemkin
-    file. Use verbose = True to turn on comments.  Use javaLibrary = True in order to 
-    generate a kinetics entry suitable for an RMG-Java kinetics library.  
+    file. Use `verbose = True` to turn on kinetics comments.
+    Use `commented = True` to comment out the entire reaction.
+    Use javaLibrary = True in order to generate a kinetics entry suitable
+    for an RMG-Java kinetics library.
     """
     string = ""
     
@@ -1671,43 +1670,40 @@ def writeKineticsEntry(reaction, speciesList, verbose = True, javaLibrary = Fals
         )
         string += '\n    STICK'
     elif isinstance(kinetics, _kinetics.Arrhenius):
-        try:
-            if not isinstance(kinetics, _kinetics.SurfaceArrhenius):
-                assert 0.999 < kinetics.A.getConversionFactorFromSItoCM() / 1.0e6 ** (numReactants - 1) < 1.001, """
-                  Gas phase reaction \n{}
-                  with kinetics \n{}
-                  with {} reactants was expected to have
-                  kinetics.A.getConversionFactorFromSItoCM() = {}
-                  but instead it is {}
-                  """.format(string, repr(kinetics), numReactants, 1.0e6**(numReactants-1), kinetics.A.getConversionFactorFromSItoCM())
-               # debugging; for gas phase only
-        except:
-            pass
+        if not isinstance(kinetics, _kinetics.SurfaceArrhenius):
+            assert 0.999 < kinetics.A.getConversionFactorFromSItoCmMolS() / 1.0e6 ** (numReactants - 1) < 1.001, """
+              Gas phase reaction \n{}
+              with kinetics \n{}
+              with {} reactants was expected to have
+              kinetics.A.getConversionFactorFromSItoCmMolS() = {}
+              but instead it is {}
+              """.format(string, repr(kinetics), numReactants, 1.0e6**(numReactants-1), kinetics.A.getConversionFactorFromSItoCmMolS())
+            # debugging; for gas phase only
         string += '{0:<9.6e} {1:<9.3f} {2:<9.3f}'.format(
-            kinetics.A.value_si / (kinetics.T0.value_si ** kinetics.n.value_si) * kinetics.A.getConversionFactorFromSItoCM(),
+            kinetics.A.value_si / (kinetics.T0.value_si ** kinetics.n.value_si) * kinetics.A.getConversionFactorFromSItoCmMolS(),
             kinetics.n.value_si,
             kinetics.Ea.value_si / 4184.
         )
     elif isinstance(kinetics, (_kinetics.Lindemann, _kinetics.Troe)):
         arrhenius = kinetics.arrheniusHigh
         string += '{0:<9.3e} {1:<9.3f} {2:<9.3f}'.format(
-            arrhenius.A.value_si / (arrhenius.T0.value_si ** arrhenius.n.value_si) * kinetics.A.getConversionFactorFromSItoCM(),
+            arrhenius.A.value_si / (arrhenius.T0.value_si ** arrhenius.n.value_si) * arrhenius.A.getConversionFactorFromSItoCmMolS(),
             arrhenius.n.value_si,
             arrhenius.Ea.value_si / 4184.
         )
     elif isinstance(kinetics, _kinetics.ThirdBody):
         arrhenius = kinetics.arrheniusLow
-        assert 0.999 < arrhenius.A.getConversionFactorFromSItoCM() / 1.0e6 ** (numReactants) < 1.001  # debugging; for gas phase only
+        assert 0.999 < arrhenius.A.getConversionFactorFromSItoCmMolS() / 1.0e6 ** (numReactants) < 1.001  # debugging; for gas phase only
         string += '{0:<9.3e} {1:<9.3f} {2:<9.3f}'.format(
-            arrhenius.A.value_si / (arrhenius.T0.value_si ** arrhenius.n.value_si) * arrhenius.A.getConversionFactorFromSItoCM(),
+            arrhenius.A.value_si / (arrhenius.T0.value_si ** arrhenius.n.value_si) * arrhenius.A.getConversionFactorFromSItoCmMolS(),
             arrhenius.n.value_si,
             arrhenius.Ea.value_si / 4184.
         )
     elif hasattr(kinetics,'highPlimit') and kinetics.highPlimit is not None:
         arrhenius = kinetics.highPlimit
-        assert 0.999 < arrhenius.A.getConversionFactorFromSItoCM() / 1.0e6 ** (numReactants - 1) < 1.001  # debugging; for gas phase only
+        assert 0.999 < arrhenius.A.getConversionFactorFromSItoCmMolS() / 1.0e6 ** (numReactants - 1) < 1.001  # debugging; for gas phase only
         string += '{0:<9.3e} {1:<9.3f} {2:<9.3f}'.format(
-            arrhenius.A.value_si / (arrhenius.T0.value_si ** arrhenius.n.value_si) * arrhenius.A.getConversionFactorFromSItoCM(),
+            arrhenius.A.value_si / (arrhenius.T0.value_si ** arrhenius.n.value_si) * arrhenius.A.getConversionFactorFromSItoCmMolS(),
             arrhenius.n.value_si,
             arrhenius.Ea.value_si / 4184.
             )
@@ -1736,9 +1732,9 @@ def writeKineticsEntry(reaction, speciesList, verbose = True, javaLibrary = Fals
         if isinstance(kinetics, (_kinetics.Lindemann, _kinetics.Troe)):
             # Write low-P kinetics
             arrhenius = kinetics.arrheniusLow
-            assert 0.999 < arrhenius.A.getConversionFactorFromSItoCM() / 1.0e6 ** (numReactants) < 1.001  # debugging; for gas phase only
+            assert 0.999 < arrhenius.A.getConversionFactorFromSItoCmMolS() / 1.0e6 ** (numReactants) < 1.001  # debugging; for gas phase only
             string += '    LOW/ {0:<9.3e} {1:<9.3f} {2:<9.3f}/\n'.format(
-                arrhenius.A.value_si / (arrhenius.T0.value_si ** arrhenius.n.value_si) * arrhenius.A.getConversionFactorFromSItoCM(),
+                arrhenius.A.value_si / (arrhenius.T0.value_si ** arrhenius.n.value_si) * arrhenius.A.getConversionFactorFromSItoCmMolS(),
                 arrhenius.n.value_si,
                 arrhenius.Ea.value_si / 4184.
             )
@@ -1752,16 +1748,16 @@ def writeKineticsEntry(reaction, speciesList, verbose = True, javaLibrary = Fals
         for P, arrhenius in zip(kinetics.pressures.value_si, kinetics.arrhenius):
             if isinstance(arrhenius, _kinetics.MultiArrhenius):
                 for arrh in arrhenius.arrhenius:
-                    assert 0.999 < arrh.A.getConversionFactorFromSItoCM() / 1.0e6 ** (numReactants - 1) < 1.001  # debugging; for gas phase only
+                    assert 0.999 < arrh.A.getConversionFactorFromSItoCmMolS() / 1.0e6 ** (numReactants - 1) < 1.001  # debugging; for gas phase only
                     string += '    PLOG/ {0:<9.6f} {1:<9.3e} {2:<9.3f} {3:<9.3f}/\n'.format(P / 101325.,
-                    arrh.A.value_si / (arrh.T0.value_si ** arrh.n.value_si) * arrh.A.getConversionFactorFromSItoCM(),
+                    arrh.A.value_si / (arrh.T0.value_si ** arrh.n.value_si) * arrh.A.getConversionFactorFromSItoCmMolS(),
                     arrh.n.value_si,
                     arrh.Ea.value_si / 4184.
                     )
             else:
-                assert 0.999 < arrhenius.A.getConversionFactorFromSItoCM() / 1.0e6 ** (numReactants - 1) < 1.001  # debugging; for gas phase only
+                assert 0.999 < arrhenius.A.getConversionFactorFromSItoCmMolS() / 1.0e6 ** (numReactants - 1) < 1.001  # debugging; for gas phase only
                 string += '    PLOG/ {0:<9.6f} {1:<9.3e} {2:<9.3f} {3:<9.3f}/\n'.format(P / 101325.,
-                    arrhenius.A.value_si / (arrhenius.T0.value_si ** arrhenius.n.value_si) * arrhenius.A.getConversionFactorFromSItoCM(),
+                    arrhenius.A.value_si / (arrhenius.T0.value_si ** arrhenius.n.value_si) * arrhenius.A.getConversionFactorFromSItoCmMolS(),
                     arrhenius.n.value_si,
                     arrhenius.Ea.value_si / 4184.
                 )
@@ -1782,7 +1778,7 @@ def writeKineticsEntry(reaction, speciesList, verbose = True, javaLibrary = Fals
             for i in range(kinetics.degreeT):
                 for j in range(kinetics.degreeP):
                     coeffs.append(kinetics.coeffs.value_si[i,j])
-            coeffs[0] += 6 * (numReactants - 1)  # bypassing the Units.getConversionFactorFromSItoCM() because it's in log10 space?
+            coeffs[0] += 6 * (numReactants - 1)  # bypassing the Units.getConversionFactorFromSItoCmMolS() because it's in log10 space?
             for i in range(len(coeffs)):
                 if i % 5 == 0: string += '    CHEB/'
                 string += ' {0:<12.3e}'.format(coeffs[i])

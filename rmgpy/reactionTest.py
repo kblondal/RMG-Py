@@ -5,7 +5,7 @@
 #                                                                             #
 # RMG - Reaction Mechanism Generator                                          #
 #                                                                             #
-# Copyright (c) 2002-2018 Prof. William H. Green (whgreen@mit.edu),           #
+# Copyright (c) 2002-2019 Prof. William H. Green (whgreen@mit.edu),           #
 # Prof. Richard H. West (r.west@neu.edu) and the RMG Team (rmg_dev@mit.edu)   #
 #                                                                             #
 # Permission is hereby granted, free of charge, to any person obtaining a     #
@@ -224,7 +224,7 @@ class TestSurfaceReaction(unittest.TestCase):
         "Test the CH3 adsorption rate given by StickingCoefficient"
 
         # First, check the molecular weight is in units we expect
-        self.assertAlmostEqual(self.rxn2sSC.reactants[0].getMolecularWeight().value_si / constants.amu / 1000,
+        self.assertAlmostEqual(self.rxn2sSC.reactants[0].molecularWeight.value_si / constants.amu / 1000,
                                15.0345e-3)  # kg/mol
 
         T = 800
@@ -239,6 +239,7 @@ class TestReaction(unittest.TestCase):
     """
     Contains unit tests of the Reaction class.
     """
+    
     def setUp(self):
         """
         A method that is called prior to each unit test in this class.

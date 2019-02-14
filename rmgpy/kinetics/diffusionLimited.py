@@ -5,7 +5,7 @@
 #                                                                             #
 # RMG - Reaction Mechanism Generator                                          #
 #                                                                             #
-# Copyright (c) 2002-2018 Prof. William H. Green (whgreen@mit.edu),           #
+# Copyright (c) 2002-2019 Prof. William H. Green (whgreen@mit.edu),           #
 # Prof. Richard H. West (r.west@neu.edu) and the RMG Team (rmg_dev@mit.edu)   #
 #                                                                             #
 # Permission is hereby granted, free of charge, to any person obtaining a     #
@@ -84,13 +84,12 @@ class DiffusionLimited(object):
                 k_diff = self.getDiffusionLimit(T, reaction, forward=True)
                 k_eff = k_forward*k_diff/(k_forward+k_diff)
             else: # 2 or 3 products
-                if Keq > 1.0: # forward rate is faster and thus limited
-                    k_diff = self.getDiffusionLimit(T, reaction, forward=True)
-                    k_eff = k_forward*k_diff/(k_forward+k_diff)
-                else: # reverse rate is faster and thus limited
-                    k_diff = self.getDiffusionLimit(T, reaction, forward=False)
-                    k_eff_reverse = k_reverse*k_diff/(k_reverse+k_diff)
-                    k_eff = k_eff_reverse * Keq
+                kf_diff = self.getDiffusionLimit(T,reaction,forward=True)
+                krev_diff = self.getDiffusionLimit(T,reaction,forward=False)
+                kff = k_forward*kf_diff/(k_forward+kf_diff)
+                krevr = k_reverse*krev_diff/(k_reverse+krev_diff)
+                kfr = Keq*krevr
+                k_eff = min(kff,kfr)
         return k_eff
 
     def getDiffusionFactor(self, reaction, T):

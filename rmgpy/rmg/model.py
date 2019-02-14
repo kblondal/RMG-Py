@@ -5,7 +5,7 @@
 #                                                                             #
 # RMG - Reaction Mechanism Generator                                          #
 #                                                                             #
-# Copyright (c) 2002-2018 Prof. William H. Green (whgreen@mit.edu),           #
+# Copyright (c) 2002-2019 Prof. William H. Green (whgreen@mit.edu),           #
 # Prof. Richard H. West (r.west@neu.edu) and the RMG Team (rmg_dev@mit.edu)   #
 #                                                                             #
 # Permission is hereby granted, free of charge, to any person obtaining a     #
@@ -257,8 +257,8 @@ class CoreEdgeReactionModel:
         # within the list of isomers for a species object describing a unique aromatic compound
         if molecule.isCyclic():
             obj = Species(molecule=[molecule])
-            from rmgpy.molecule.resonance import generate_aromatic_resonance_structures
-            aromaticIsomers = generate_aromatic_resonance_structures(molecule)
+            from rmgpy.molecule.resonance import generate_optimal_aromatic_resonance_structures
+            aromaticIsomers = generate_optimal_aromatic_resonance_structures(molecule)
             obj.molecule.extend(aromaticIsomers)
 
         # First check cache and return if species is found
@@ -811,13 +811,13 @@ class CoreEdgeReactionModel:
             if rxn is None:
                 # Skip this reaction because there was something wrong with it
                 continue
+            spcs = []
             if isNew:
                 # We've made a new reaction, so make sure the species involved
                 # are in the core or edge
                 allSpeciesInCore = True
                 # Add the reactant and product species to the edge if necessary
                 # At the same time, check if all reactants and products are in the core
-                spcs = []
                 for spec in rxn.reactants:
                     if spec not in self.core.species:
                         allSpeciesInCore = False

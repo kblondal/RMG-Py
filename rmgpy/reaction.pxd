@@ -2,7 +2,7 @@
 #                                                                             #
 # RMG - Reaction Mechanism Generator                                          #
 #                                                                             #
-# Copyright (c) 2002-2018 Prof. William H. Green (whgreen@mit.edu),           #
+# Copyright (c) 2002-2019 Prof. William H. Green (whgreen@mit.edu),           #
 # Prof. Richard H. West (r.west@neu.edu) and the RMG Team (rmg_dev@mit.edu)   #
 #                                                                             #
 # Permission is hereby granted, free of charge, to any person obtaining a     #
@@ -64,7 +64,7 @@ cdef class Reaction:
     cpdef bint isAssociation(self)
     
     cpdef bint isUnimolecular(self)
-    
+
     cpdef bint isSurfaceReaction(self)
 
     cpdef bint hasTemplate(self, list reactants, list products)
@@ -92,7 +92,7 @@ cdef class Reaction:
     cpdef int getStoichiometricCoefficient(self, Species spec)
 
     cpdef double getRateCoefficient(self, double T, double P=?)
-    
+
     cpdef double getSurfaceRateCoefficient(self, double T, double surfaceSiteDensity) except -2
 
     cpdef fixBarrierHeight(self, bint forcePositive=?)

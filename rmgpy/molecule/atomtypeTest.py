@@ -5,7 +5,7 @@
 #                                                                             #
 # RMG - Reaction Mechanism Generator                                          #
 #                                                                             #
-# Copyright (c) 2002-2018 Prof. William H. Green (whgreen@mit.edu),           #
+# Copyright (c) 2002-2019 Prof. William H. Green (whgreen@mit.edu),           #
 # Prof. Richard H. West (r.west@neu.edu) and the RMG Team (rmg_dev@mit.edu)   #
 #                                                                             #
 # Permission is hereby granted, free of charge, to any person obtaining a     #
@@ -486,11 +486,14 @@ class TestGetAtomType(unittest.TestCase):
         self.mol74 = Molecule().fromAdjacencyList('''1 H  u0 p0 c0 {2,S}
                                                      2 I  u0 p3 c0 {1,S}''')
 
-        self.mol75 = Molecule().fromAdjacencyList('''1  H u0 p0 {2,S}
+        self.mol75 = Molecule().fromAdjacencyList('''1 H  u0 p0 c0 {2,S}
+                                                     2 F  u0 p3 c0 {1,S}''')
+
+        self.mol76 = Molecule().fromAdjacencyList('''1  H u0 p0 {2,S}
                                                      2  X u0 {1,S}''')
-        self.mol76 = Molecule().fromAdjacencyList('''1 X u0 p0''')
-        
-    
+
+        self.mol77 = Molecule().fromAdjacencyList('''1 X u0 p0''')
+
     def atomType(self, mol, atomID):
         atom = mol.atoms[atomID]
         type = getAtomType(atom, mol.getBonds(atom))
@@ -621,6 +624,12 @@ class TestGetAtomType(unittest.TestCase):
         """
         self.assertEqual(self.atomType(self.mol74, 1), 'I1s')
 
+    def testFluorineTypes(self):
+        """
+        Test that getAtomType() returns appropriate fluorine atom types.
+        """
+        self.assertEqual(self.atomType(self.mol75, 1), 'F1s')
+
     def testOtherTypes(self):
         """
         Test that getAtomType() returns appropriate types for other misc inerts.
@@ -633,13 +642,13 @@ class TestGetAtomType(unittest.TestCase):
         """
         Test that getAtomType() works for occupied surface sites.
         """
-        self.assertEqual(self.atomType(self.mol75, 1), 'Xo')
+        self.assertEqual(self.atomType(self.mol76, 1), 'Xo')
 
     def testSurfaceSiteAtomType(self):
         """
         Test that getAtomType() works for vacant surface sites.
         """
-        self.assertEqual(self.atomType(self.mol76, 0), 'Xv')
+        self.assertEqual(self.atomType(self.mol77, 0), 'Xv')
 
 ################################################################################
 

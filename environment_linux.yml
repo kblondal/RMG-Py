@@ -42,4 +42,5 @@ dependencies:
   - muq
   - pymongo
   - mpmath
-  
+  - dde
+  - pyyaml
