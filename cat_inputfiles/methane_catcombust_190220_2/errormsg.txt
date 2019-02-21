@@ -1,0 +1,52 @@
+Saving current model core to Chemkin file...
+Chemkin file contains 261 reactions.
+Chemkin file contains 45 reactions.
+Saving annotated version of Chemkin files...
+Chemkin file contains 261 reactions.
+Chemkin file contains 45 reactions.
+Saving current model core and edge to Chemkin file...
+Chemkin file contains 534 reactions.
+Chemkin file contains 53 reactions.
+Saving annotated version of Chemkin files...
+Chemkin file contains 534 reactions.
+Chemkin file contains 53 reactions.
+Saving current model core to HTML file...
+Saving current model edge to HTML file...
+Updating RMG execution statistics...
+    Execution time (DD:HH:MM:SS): 00:00:17:41
+    Memory used: 1181.24 MB
+
+Making seed mechanism...
+Performing final model checks...
+/home/kblondal/Code/Cat/RMG-Py/rmgpy/rmg/main.py:994: FutureWarning: `rcond` parameter will change to the default of machine precision times ``max(M, N)`` where M and N are the input matrix dimensions.
+To use the future default and silence this warning we advise to pass `rcond=None`, to keep using the old, explicitly pass `rcond=-1`.
+  p_min=self.Pmin, p_max=self.Pmax)
+Traceback (most recent call last):
+  File "rmgpy/kinetics/arrhenius.pyx", line 515, in rmgpy.kinetics.arrhenius.PDepArrhenius.getRateCoefficient
+    raise ValueError('No pressure specified to pressure-dependent PDepArrhenius.getRateCoefficient().')
+ValueError: No pressure specified to pressure-dependent PDepArrhenius.getRateCoefficient().
+Exception ValueError: ValueError('No pressure specified to pressure-dependent PDepArrhenius.getRateCoefficient().',) in 'rmgpy.reaction.Reaction.getRateCoefficient' ignored
+Traceback (most recent call last):
+  File "rmgpy/kinetics/arrhenius.pyx", line 515, in rmgpy.kinetics.arrhenius.PDepArrhenius.getRateCoefficient
+    raise ValueError('No pressure specified to pressure-dependent PDepArrhenius.getRateCoefficient().')
+ValueError: No pressure specified to pressure-dependent PDepArrhenius.getRateCoefficient().
+Exception ValueError: ValueError('No pressure specified to pressure-dependent PDepArrhenius.getRateCoefficient().',) in 'rmgpy.reaction.Reaction.getRateCoefficient' ignored
+Traceback (most recent call last):
+  File "rmg.py", line 173, in <module>
+    main()
+  File "rmg.py", line 167, in main
+    rmg.execute(**kwargs)
+  File "/home/kblondal/Code/Cat/RMG-Py/rmgpy/rmg/main.py", line 947, in execute
+    self.check_model()
+  File "/home/kblondal/Code/Cat/RMG-Py/rmgpy/rmg/main.py", line 994, in check_model
+    p_min=self.Pmin, p_max=self.Pmax)
+  File "rmgpy/reaction.py", line 1206, in rmgpy.reaction.Reaction.check_collision_limit_violation
+    def check_collision_limit_violation(self, t_min, t_max, p_min, p_max):
+  File "rmgpy/reaction.py", line 1239, in rmgpy.reaction.Reaction.check_collision_limit_violation
+    kr_list.append(self.generateReverseRateCoefficient().getRateCoefficient(condition[0], condition[1]))
+  File "rmgpy/kinetics/arrhenius.pyx", line 505, in rmgpy.kinetics.arrhenius.PDepArrhenius.getRateCoefficient
+    cpdef double getRateCoefficient(self, double T, double P=0) except -1:
+  File "rmgpy/kinetics/arrhenius.pyx", line 515, in rmgpy.kinetics.arrhenius.PDepArrhenius.getRateCoefficient
+    raise ValueError('No pressure specified to pressure-dependent PDepArrhenius.getRateCoefficient().')
+ValueError: No pressure specified to pressure-dependent PDepArrhenius.getRateCoefficient().
+

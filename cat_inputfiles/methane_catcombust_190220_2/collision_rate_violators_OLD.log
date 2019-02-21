@@ -1,0 +1,136 @@
+*** Collision rate limit violators report ***
+"Violation factor" is the ratio of the rate coefficient to the collision limit rate at the relevant conditions
+
+OH(20) + HCO(25) <=> H2O(10) + CO(13)
+Arrhenius(A=(1.1653e+14,'cm^3/(mol*s)'), n=0, Ea=(0,'cal/mol'), T0=(1,'K'))
+Kinetic library: ERC-FoundationFuelv0.9
+Direction: forward
+Violation factor: 1.56
+Violation condition: 800.0 K, 0.0 bar
+
+OH(20) + HCO(25) <=> H2O(10) + CO(13)
+Arrhenius(A=(1.1653e+14,'cm^3/(mol*s)'), n=0, Ea=(0,'cal/mol'), T0=(1,'K'))
+Kinetic library: ERC-FoundationFuelv0.9
+Direction: forward
+Violation factor: 1.25
+Violation condition: 1500.0 K, 0.0 bar
+
+CH3(30) + O2(3) <=> CH3O(35) + O(19)
+Arrhenius(A=(9.8226e+12,'cm^3/(mol*s)'), n=0, Ea=(28297,'cal/mol'), T0=(1,'K'))
+Kinetic library: ERC-FoundationFuelv0.9
+Direction: reverse
+Violation factor: 2.55
+Violation condition: 800.0 K, 0.0 bar
+
+CH3(30) + O2(3) <=> CH3O(35) + O(19)
+Arrhenius(A=(9.8226e+12,'cm^3/(mol*s)'), n=0, Ea=(28297,'cal/mol'), T0=(1,'K'))
+Kinetic library: ERC-FoundationFuelv0.9
+Direction: reverse
+Violation factor: 1.36
+Violation condition: 1500.0 K, 0.0 bar
+
+CH3O(35) + HCO(25) <=> CH2O(29) + CH2O(29)
+Arrhenius(A=(1.71712e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using average of templates [Y_rad;Cmethyl_Orad] + [CO_pri_rad;XH_s_Rrad] for rate rule [CO_pri_rad;Cmethyl_Orad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 3.0
+family: Disproportionation
+Direction: forward
+Violation factor: 2.06
+Violation condition: 800.0 K, 0.0 bar
+
+CH3O(35) + HCO(25) <=> CH2O(29) + CH2O(29)
+Arrhenius(A=(1.71712e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using average of templates [Y_rad;Cmethyl_Orad] + [CO_pri_rad;XH_s_Rrad] for rate rule [CO_pri_rad;Cmethyl_Orad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 3.0
+family: Disproportionation
+Direction: forward
+Violation factor: 1.65
+Violation condition: 1500.0 K, 0.0 bar
+
+CH2OH(40) + O(19) <=> OH(20) + CH2O(29)
+Arrhenius(A=(9.03e+13,'cm^3/(mol*s)'), n=0, Ea=(0,'cal/mol'), T0=(1,'K'))
+Kinetic library: ERC-FoundationFuelv0.9
+Direction: forward
+Violation factor: 1.16
+Violation condition: 800.0 K, 0.0 bar
+
+CH2OH(40) + HCO(25) <=> CH2O(29) + CH2O(29)
+Arrhenius(A=(1.81e+14,'cm^3/(mol*s)','*|/',3), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'), Tmin=(300,'K'), Tmax=(2500,'K'))
+Matched reaction 64 CHO + CH3O <=> CH2O-3 + CH2O in Disproportionation/training
+This reaction matched rate rule [CO_pri_rad;O_Csrad]
+family: Disproportionation
+Direction: forward
+Violation factor: 2.17
+Violation condition: 800.0 K, 0.0 bar
+
+CH2OH(40) + HCO(25) <=> CH2O(29) + CH2O(29)
+Arrhenius(A=(1.81e+14,'cm^3/(mol*s)','*|/',3), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'), Tmin=(300,'K'), Tmax=(2500,'K'))
+Matched reaction 64 CHO + CH3O <=> CH2O-3 + CH2O in Disproportionation/training
+This reaction matched rate rule [CO_pri_rad;O_Csrad]
+family: Disproportionation
+Direction: forward
+Violation factor: 1.74
+Violation condition: 1500.0 K, 0.0 bar
+
+HOCO(62) + HCO(25) <=> CO2(11) + CH2O(29)
+Arrhenius(A=(1.81e+14,'cm^3/(mol*s)','*|/',3), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'), Tmin=(300,'K'), Tmax=(2500,'K'))
+Estimated using template [CO_pri_rad;O_Rrad] for rate rule [CO_pri_rad;O_COrad]
+Euclidian distance = 1.0
+family: Disproportionation
+Direction: forward
+Violation factor: 2.42
+Violation condition: 800.0 K, 0.0 bar
+
+HOCO(62) + HCO(25) <=> CO2(11) + CH2O(29)
+Arrhenius(A=(1.81e+14,'cm^3/(mol*s)','*|/',3), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'), Tmin=(300,'K'), Tmax=(2500,'K'))
+Estimated using template [CO_pri_rad;O_Rrad] for rate rule [CO_pri_rad;O_COrad]
+Euclidian distance = 1.0
+family: Disproportionation
+Direction: forward
+Violation factor: 1.94
+Violation condition: 1500.0 K, 0.0 bar
+
+formyloxy(63) + HCO(25) <=> CO2(11) + CH2O(29)
+Arrhenius(A=(1.81e+14,'cm^3/(mol*s)','*|/',3), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'), Tmin=(300,'K'), Tmax=(2500,'K'))
+Estimated using template [CO_pri_rad;XH_s_Rrad] for rate rule [CO_pri_rad;COpri_Orad]
+Euclidian distance = 2.0
+family: Disproportionation
+Direction: forward
+Violation factor: 2.42
+Violation condition: 800.0 K, 0.0 bar
+
+formyloxy(63) + HCO(25) <=> CO2(11) + CH2O(29)
+Arrhenius(A=(1.81e+14,'cm^3/(mol*s)','*|/',3), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'), Tmin=(300,'K'), Tmax=(2500,'K'))
+Estimated using template [CO_pri_rad;XH_s_Rrad] for rate rule [CO_pri_rad;COpri_Orad]
+Euclidian distance = 2.0
+family: Disproportionation
+Direction: forward
+Violation factor: 1.94
+Violation condition: 1500.0 K, 0.0 bar
+
+formyloxy(63) + O(19) <=> formylperoxy(107)
+Arrhenius(A=(69341.5,'m^3/(mol*s)'), n=0.968108, Ea=(-2.00346,'kJ/mol'), T0=(1,'K'), Tmin=(303.03,'K'), Tmax=(2000,'K'))
+Estimated using template [O_sec_rad;O_birad] for rate rule [O_rad/OneDe;O_birad]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 2.0
+family: Birad_R_Recombination
+Direction: forward
+Violation factor: 1.09
+Violation condition: 1500.0 K, 0.0 bar
+
+CH3(30) + CH3(30) <=> C2H5(39) + H(18)
+Arrhenius(A=(7.845e+12,'cm^3/(mol*s)'), n=0.1, Ea=(10600,'cal/mol'), T0=(1,'K'))
+Kinetic library: ERC-FoundationFuelv0.9
+Direction: reverse
+Violation factor: 1.57
+Violation condition: 800.0 K, 0.0 bar
+
+CH3(30) + CH3(30) <=> C2H5(39) + H(18)
+Arrhenius(A=(7.845e+12,'cm^3/(mol*s)'), n=0.1, Ea=(10600,'cal/mol'), T0=(1,'K'))
+Kinetic library: ERC-FoundationFuelv0.9
+Direction: reverse
+Violation factor: 1.02
+Violation condition: 1500.0 K, 0.0 bar
+
