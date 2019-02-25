@@ -1,0 +1,1264 @@
+*** Collision rate limit violators report ***
+"Violation factor" is the ratio of the rate coefficient to the collision limit rate at the relevant conditions
+
+CH3(19) + O2(2) <=> CH3O(24) + O(4)
+Arrhenius(A=(9.8226e+12,'cm^3/(mol*s)'), n=0, Ea=(28297,'cal/mol'), T0=(1,'K'))
+Kinetic library: ERC-FoundationFuelv0.9
+Direction: reverse
+Violation factor: 2.55
+Violation condition: 800.0 K, 1.0 bar
+
+CH3(19) + O2(2) <=> CH3O(24) + O(4)
+Arrhenius(A=(9.8226e+12,'cm^3/(mol*s)'), n=0, Ea=(28297,'cal/mol'), T0=(1,'K'))
+Kinetic library: ERC-FoundationFuelv0.9
+Direction: reverse
+Violation factor: 1.36
+Violation condition: 1500.0 K, 1.0 bar
+
+CH2OH(29) + O(4) <=> CH2O(18) + OH(5)
+Arrhenius(A=(9.03e+13,'cm^3/(mol*s)'), n=0, Ea=(0,'cal/mol'), T0=(1,'K'))
+Kinetic library: ERC-FoundationFuelv0.9
+Direction: forward
+Violation factor: 1.16
+Violation condition: 800.0 K, 1.0 bar
+
+[CH2][O](180) + O2(2) <=> [O]CO[O](159)
+Arrhenius(A=(2.32657e+06,'m^3/(mol*s)'), n=0.182842, Ea=(-25.2611,'kJ/mol'), T0=(1,'K'))
+Estimated using an average for rate rule [Y_rad;O2_birad]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: R_Recombination
+Direction: forward
+Violation factor: 3.03
+Violation condition: 800.0 K, 1.0 bar
+
+HCO(14) + CH3O(24) <=> CH2O(18) + CH2O(18)
+Arrhenius(A=(1.71712e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using average of templates [Y_rad;Cmethyl_Orad] + [CO_pri_rad;XH_s_Rrad] for rate rule [CO_pri_rad;Cmethyl_Orad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 3.0
+family: Disproportionation
+Direction: forward
+Violation factor: 2.06
+Violation condition: 800.0 K, 1.0 bar
+
+HCO(14) + CH3O(24) <=> CH2O(18) + CH2O(18)
+Arrhenius(A=(1.71712e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using average of templates [Y_rad;Cmethyl_Orad] + [CO_pri_rad;XH_s_Rrad] for rate rule [CO_pri_rad;Cmethyl_Orad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 3.0
+family: Disproportionation
+Direction: forward
+Violation factor: 1.65
+Violation condition: 1500.0 K, 1.0 bar
+
+HCO(14) + OH(5) <=> CO(12) + H2O(7)
+Arrhenius(A=(1.1653e+14,'cm^3/(mol*s)'), n=0, Ea=(0,'cal/mol'), T0=(1,'K'))
+Kinetic library: ERC-FoundationFuelv0.9
+Direction: forward
+Violation factor: 1.56
+Violation condition: 800.0 K, 1.0 bar
+
+HCO(14) + OH(5) <=> CO(12) + H2O(7)
+Arrhenius(A=(1.1653e+14,'cm^3/(mol*s)'), n=0, Ea=(0,'cal/mol'), T0=(1,'K'))
+Kinetic library: ERC-FoundationFuelv0.9
+Direction: forward
+Violation factor: 1.25
+Violation condition: 1500.0 K, 1.0 bar
+
+CH3(19) + CH3(19) <=> C2H5(28) + H(3)
+Arrhenius(A=(7.845e+12,'cm^3/(mol*s)'), n=0.1, Ea=(10600,'cal/mol'), T0=(1,'K'))
+Kinetic library: ERC-FoundationFuelv0.9
+Direction: reverse
+Violation factor: 1.57
+Violation condition: 800.0 K, 1.0 bar
+
+CH3(19) + CH3(19) <=> C2H5(28) + H(3)
+Arrhenius(A=(7.845e+12,'cm^3/(mol*s)'), n=0.1, Ea=(10600,'cal/mol'), T0=(1,'K'))
+Kinetic library: ERC-FoundationFuelv0.9
+Direction: reverse
+Violation factor: 1.02
+Violation condition: 1500.0 K, 1.0 bar
+
+CH3OO(38) + OH(5) <=> CH3OH(30) + O2(2)
+Arrhenius(A=(1.7e+14,'cm^3/(mol*s)'), n=0, Ea=(0,'cal/mol'), T0=(1,'K'))
+Kinetic library: NOx2018
+Direction: forward
+Violation factor: 2.37
+Violation condition: 800.0 K, 1.0 bar
+
+CH3OO(38) + OH(5) <=> CH3OH(30) + O2(2)
+Arrhenius(A=(1.7e+14,'cm^3/(mol*s)'), n=0, Ea=(0,'cal/mol'), T0=(1,'K'))
+Kinetic library: NOx2018
+Direction: forward
+Violation factor: 1.90
+Violation condition: 1500.0 K, 1.0 bar
+
+HCO(14) + CH3O(24) <=> CO(12) + CH3OH(30)
+Arrhenius(A=(9.03e+13,'cm^3/(mol*s)','*|/',3), n=0, Ea=(0,'cal/mol'), T0=(1,'K'))
+Matched reaction 4 HCO + CH3O <=> CO + CH3OH in CO_Disproportionation/training
+This reaction matched rate rule [O_rad/NonDeC;HCO]
+family: CO_Disproportionation
+Direction: forward
+Violation factor: 1.08
+Violation condition: 800.0 K, 1.0 bar
+
+OCHO(65) + CH3O(24) <=> CH2O(18) + HOCHO(42)
+Arrhenius(A=(2940.1,'m^3/(mol*s)'), n=1.39667, Ea=(-3.47621,'kJ/mol'), T0=(1,'K'))
+Estimated using average of templates [O_rad;Cmethyl_Rrad] + [O_sec_rad;XH_s_Rrad] for rate rule [O_rad/OneDe;Cmethyl_Orad]
+Euclidian distance = 2.2360679775
+Multiplied by reaction path degeneracy 6.0
+family: Disproportionation
+Direction: forward
+Violation factor: 1.13
+Violation condition: 1500.0 K, 1.0 bar
+
+[O]C[O](178) + HCO(14) <=> OCHO(65) + CH2O(18)
+Arrhenius(A=(3.62e+14,'cm^3/(mol*s)','*|/',3), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'), Tmin=(300,'K'), Tmax=(2500,'K'))
+Estimated using an average for rate rule [CO_pri_rad;XH_s_Rrad]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+Direction: forward
+Violation factor: 2.78
+Violation condition: 800.0 K, 1.0 bar
+
+[O]C[O](178) + HCO(14) <=> OCHO(65) + CH2O(18)
+Arrhenius(A=(3.62e+14,'cm^3/(mol*s)','*|/',3), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'), Tmin=(300,'K'), Tmax=(2500,'K'))
+Estimated using an average for rate rule [CO_pri_rad;XH_s_Rrad]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+Direction: forward
+Violation factor: 2.23
+Violation condition: 1500.0 K, 1.0 bar
+
+OCHO(65) + O(4) <=> formylperoxy(276)
+Arrhenius(A=(69341.5,'m^3/(mol*s)'), n=0.968108, Ea=(-2.00346,'kJ/mol'), T0=(1,'K'), Tmin=(303.03,'K'), Tmax=(2000,'K'))
+Estimated using template [O_sec_rad;O_birad] for rate rule [O_rad/OneDe;O_birad]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 2.0
+family: Birad_R_Recombination
+Direction: forward
+Violation factor: 1.09
+Violation condition: 1500.0 K, 1.0 bar
+
+OCHO(65) + C2H5(28) <=> C2H4(27) + HOCHO(42)
+Arrhenius(A=(1.446e+14,'cm^3/(mol*s)','*|/',3), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'), Tmin=(300,'K'), Tmax=(2500,'K'))
+Estimated using template [O_rad;Cmethyl_Csrad] for rate rule [O_rad/OneDe;Cmethyl_Csrad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 6.0
+family: Disproportionation
+Direction: forward
+Violation factor: 1.60
+Violation condition: 800.0 K, 1.0 bar
+
+OCHO(65) + C2H5(28) <=> C2H4(27) + HOCHO(42)
+Arrhenius(A=(1.446e+14,'cm^3/(mol*s)','*|/',3), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'), Tmin=(300,'K'), Tmax=(2500,'K'))
+Estimated using template [O_rad;Cmethyl_Csrad] for rate rule [O_rad/OneDe;Cmethyl_Csrad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 6.0
+family: Disproportionation
+Direction: forward
+Violation factor: 1.28
+Violation condition: 1500.0 K, 1.0 bar
+
+OCHO(65) + HCO(14) <=> CO2(13) + CH2O(18)
+Arrhenius(A=(1.81e+14,'cm^3/(mol*s)','*|/',3), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'), Tmin=(300,'K'), Tmax=(2500,'K'))
+Estimated using template [CO_pri_rad;XH_s_Rrad] for rate rule [CO_pri_rad;COpri_Orad]
+Euclidian distance = 2.0
+family: Disproportionation
+Direction: forward
+Violation factor: 2.42
+Violation condition: 800.0 K, 1.0 bar
+
+OCHO(65) + HCO(14) <=> CO2(13) + CH2O(18)
+Arrhenius(A=(1.81e+14,'cm^3/(mol*s)','*|/',3), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'), Tmin=(300,'K'), Tmax=(2500,'K'))
+Estimated using template [CO_pri_rad;XH_s_Rrad] for rate rule [CO_pri_rad;COpri_Orad]
+Euclidian distance = 2.0
+family: Disproportionation
+Direction: forward
+Violation factor: 1.94
+Violation condition: 1500.0 K, 1.0 bar
+
+HOCO(36) + CH2OH(29) <=> CH2O(18) + HOCHO(42)
+Arrhenius(A=(1.81e+14,'cm^3/(mol*s)','*|/',3), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'), Tmin=(300,'K'), Tmax=(2500,'K'))
+Estimated using template [CO_rad;O_Csrad] for rate rule [CO_rad/NonDe;O_Csrad]
+Euclidian distance = 2.0
+family: Disproportionation
+Direction: forward
+Violation factor: 2.40
+Violation condition: 800.0 K, 1.0 bar
+
+HOCO(36) + CH2OH(29) <=> CH2O(18) + HOCHO(42)
+Arrhenius(A=(1.81e+14,'cm^3/(mol*s)','*|/',3), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'), Tmin=(300,'K'), Tmax=(2500,'K'))
+Estimated using template [CO_rad;O_Csrad] for rate rule [CO_rad/NonDe;O_Csrad]
+Euclidian distance = 2.0
+family: Disproportionation
+Direction: forward
+Violation factor: 1.92
+Violation condition: 1500.0 K, 1.0 bar
+
+HOCO(36) + CH3O(24) <=> CH2O(18) + HOCHO(42)
+Arrhenius(A=(5.43e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [CO_rad;XH_s_Rrad] for rate rule [CO_rad/NonDe;Cmethyl_Orad]
+Euclidian distance = 2.82842712475
+Multiplied by reaction path degeneracy 3.0
+family: Disproportionation
+Direction: forward
+Violation factor: 7.19
+Violation condition: 800.0 K, 1.0 bar
+
+HOCO(36) + CH3O(24) <=> CH2O(18) + HOCHO(42)
+Arrhenius(A=(5.43e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [CO_rad;XH_s_Rrad] for rate rule [CO_rad/NonDe;Cmethyl_Orad]
+Euclidian distance = 2.82842712475
+Multiplied by reaction path degeneracy 3.0
+family: Disproportionation
+Direction: forward
+Violation factor: 5.77
+Violation condition: 1500.0 K, 1.0 bar
+
+HOCO(36) + C2H5(28) <=> C2H4(27) + HOCHO(42)
+Arrhenius(A=(5.43e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [CO_rad;XH_s_Rrad] for rate rule [CO_rad/NonDe;Cmethyl_Csrad]
+Euclidian distance = 2.82842712475
+Multiplied by reaction path degeneracy 3.0
+family: Disproportionation
+Direction: forward
+Violation factor: 6.00
+Violation condition: 800.0 K, 1.0 bar
+
+HOCO(36) + C2H5(28) <=> C2H4(27) + HOCHO(42)
+Arrhenius(A=(5.43e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [CO_rad;XH_s_Rrad] for rate rule [CO_rad/NonDe;Cmethyl_Csrad]
+Euclidian distance = 2.82842712475
+Multiplied by reaction path degeneracy 3.0
+family: Disproportionation
+Direction: forward
+Violation factor: 4.81
+Violation condition: 1500.0 K, 1.0 bar
+
+[O]C[O](178) + HOCO(36) <=> OCHO(65) + HOCHO(42)
+Arrhenius(A=(3.62e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [CO_rad;XH_s_Rrad] for rate rule [CO_rad/NonDe;XH_s_Rrad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+Direction: forward
+Violation factor: 3.14
+Violation condition: 800.0 K, 1.0 bar
+
+[O]C[O](178) + HOCO(36) <=> OCHO(65) + HOCHO(42)
+Arrhenius(A=(3.62e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [CO_rad;XH_s_Rrad] for rate rule [CO_rad/NonDe;XH_s_Rrad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+Direction: forward
+Violation factor: 2.52
+Violation condition: 1500.0 K, 1.0 bar
+
+HOCO(36) + HCO(14) <=> CO2(13) + CH2O(18)
+Arrhenius(A=(1.81e+14,'cm^3/(mol*s)','*|/',3), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'), Tmin=(300,'K'), Tmax=(2500,'K'))
+Estimated using template [CO_pri_rad;O_Rrad] for rate rule [CO_pri_rad;O_COrad]
+Euclidian distance = 1.0
+family: Disproportionation
+Direction: forward
+Violation factor: 2.42
+Violation condition: 800.0 K, 1.0 bar
+
+HOCO(36) + HCO(14) <=> CO2(13) + CH2O(18)
+Arrhenius(A=(1.81e+14,'cm^3/(mol*s)','*|/',3), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'), Tmin=(300,'K'), Tmax=(2500,'K'))
+Estimated using template [CO_pri_rad;O_Rrad] for rate rule [CO_pri_rad;O_COrad]
+Euclidian distance = 1.0
+family: Disproportionation
+Direction: forward
+Violation factor: 1.94
+Violation condition: 1500.0 K, 1.0 bar
+
+HOCO(36) + HOCO(36) <=> CO2(13) + HOCHO(42)
+Arrhenius(A=(1.81e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [CO_rad;O_Rrad] for rate rule [CO_rad/NonDe;O_COrad]
+Euclidian distance = 2.2360679775
+family: Disproportionation
+Direction: forward
+Violation factor: 2.73
+Violation condition: 800.0 K, 1.0 bar
+
+HOCO(36) + HOCO(36) <=> CO2(13) + HOCHO(42)
+Arrhenius(A=(1.81e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [CO_rad;O_Rrad] for rate rule [CO_rad/NonDe;O_COrad]
+Euclidian distance = 2.2360679775
+family: Disproportionation
+Direction: forward
+Violation factor: 2.19
+Violation condition: 1500.0 K, 1.0 bar
+
+OCHO(65) + HOCO(36) <=> CO2(13) + HOCHO(42)
+Arrhenius(A=(1.81e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [CO_rad;XH_s_Rrad] for rate rule [CO_rad/NonDe;COpri_Orad]
+Euclidian distance = 2.82842712475
+family: Disproportionation
+Direction: forward
+Violation factor: 2.73
+Violation condition: 800.0 K, 1.0 bar
+
+OCHO(65) + HOCO(36) <=> CO2(13) + HOCHO(42)
+Arrhenius(A=(1.81e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [CO_rad;XH_s_Rrad] for rate rule [CO_rad/NonDe;COpri_Orad]
+Euclidian distance = 2.82842712475
+family: Disproportionation
+Direction: forward
+Violation factor: 2.19
+Violation condition: 1500.0 K, 1.0 bar
+
+OCHO(65) + HOCO(36) <=> CO2(13) + HOCHO(42)
+Arrhenius(A=(1.81e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [CO_rad;XH_s_Rrad] for rate rule [CO_rad/NonDe;COpri_Orad]
+Euclidian distance = 2.82842712475
+family: Disproportionation
+Direction: forward
+Violation factor: 2.73
+Violation condition: 800.0 K, 1.0 bar
+
+OCHO(65) + HOCO(36) <=> CO2(13) + HOCHO(42)
+Arrhenius(A=(1.81e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [CO_rad;XH_s_Rrad] for rate rule [CO_rad/NonDe;COpri_Orad]
+Euclidian distance = 2.82842712475
+family: Disproportionation
+Direction: forward
+Violation factor: 2.19
+Violation condition: 1500.0 K, 1.0 bar
+
+OCHO(65) + HOCH2O(41) <=> HOCHO(42) + HOCHO(42)
+Arrhenius(A=(9.64e+07,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [O_rad;C/H2/Nd_Rrad] for rate rule [O_rad/OneDe;C/H2/Nd_Orad]
+Euclidian distance = 2.2360679775
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+Direction: forward
+Violation factor: 1.18
+Violation condition: 800.0 K, 1.0 bar
+
+[O]C[O](178) + CH3O(24) <=> CH2O(18) + HOCH2O(41)
+Arrhenius(A=(1.446e+14,'cm^3/(mol*s)','*|/',2), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'), Tmin=(300,'K'), Tmax=(2500,'K'))
+Estimated using template [O_rad/NonDeC;XH_s_Rrad] for rate rule [O_rad/NonDeC;Cmethyl_Orad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 6.0
+family: Disproportionation
+Direction: forward
+Violation factor: 1.11
+Violation condition: 800.0 K, 1.0 bar
+
+[O]C[O](178) + HCO(14) <=> CO(12) + HOCH2O(41)
+Arrhenius(A=(1.806e+14,'cm^3/(mol*s)','*|/',3), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+From training reaction 4 used for O_rad/NonDeC;HCO
+Exact match found for rate rule [O_rad/NonDeC;HCO]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: CO_Disproportionation
+Direction: forward
+Violation factor: 1.39
+Violation condition: 800.0 K, 1.0 bar
+
+[O]C[O](178) + HCO(14) <=> CO(12) + HOCH2O(41)
+Arrhenius(A=(1.806e+14,'cm^3/(mol*s)','*|/',3), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+From training reaction 4 used for O_rad/NonDeC;HCO
+Exact match found for rate rule [O_rad/NonDeC;HCO]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: CO_Disproportionation
+Direction: forward
+Violation factor: 1.11
+Violation condition: 1500.0 K, 1.0 bar
+
+OCHO(65) + CH3CH2O(43) <=> CH3CHO(34) + HOCHO(42)
+Arrhenius(A=(9.64e+07,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [O_rad;C/H2/Nd_Rrad] for rate rule [O_rad/OneDe;C/H2/Nd_Orad]
+Euclidian distance = 2.2360679775
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+Direction: forward
+Violation factor: 1.14
+Violation condition: 800.0 K, 1.0 bar
+
+CH3CO(32) + O(4) <=> CO2(13) + CH3(19)
+Arrhenius(A=(1.58e+14,'cm^3/(mol*s)'), n=0, Ea=(0,'cal/mol'), T0=(1,'K'))
+Kinetic library: ERC-FoundationFuelv0.9
+Direction: forward
+Violation factor: 1.96
+Violation condition: 800.0 K, 1.0 bar
+
+CH3CO(32) + O(4) <=> CO2(13) + CH3(19)
+Arrhenius(A=(1.58e+14,'cm^3/(mol*s)'), n=0, Ea=(0,'cal/mol'), T0=(1,'K'))
+Kinetic library: ERC-FoundationFuelv0.9
+Direction: forward
+Violation factor: 1.57
+Violation condition: 1500.0 K, 1.0 bar
+
+CH2OH(29) + CH3CO(32) <=> CH2O(18) + CH3CHO(34)
+Arrhenius(A=(1.81e+14,'cm^3/(mol*s)','*|/',3), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'), Tmin=(300,'K'), Tmax=(2500,'K'))
+Estimated using template [CO_rad;O_Csrad] for rate rule [CO_rad/NonDe;O_Csrad]
+Euclidian distance = 2.0
+family: Disproportionation
+Direction: forward
+Violation factor: 2.15
+Violation condition: 800.0 K, 1.0 bar
+
+CH2OH(29) + CH3CO(32) <=> CH2O(18) + CH3CHO(34)
+Arrhenius(A=(1.81e+14,'cm^3/(mol*s)','*|/',3), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'), Tmin=(300,'K'), Tmax=(2500,'K'))
+Estimated using template [CO_rad;O_Csrad] for rate rule [CO_rad/NonDe;O_Csrad]
+Euclidian distance = 2.0
+family: Disproportionation
+Direction: forward
+Violation factor: 1.72
+Violation condition: 1500.0 K, 1.0 bar
+
+CH3O(24) + CH3CO(32) <=> CH2O(18) + CH3CHO(34)
+Arrhenius(A=(5.43e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [CO_rad;XH_s_Rrad] for rate rule [CO_rad/NonDe;Cmethyl_Orad]
+Euclidian distance = 2.82842712475
+Multiplied by reaction path degeneracy 3.0
+family: Disproportionation
+Direction: forward
+Violation factor: 6.44
+Violation condition: 800.0 K, 1.0 bar
+
+CH3O(24) + CH3CO(32) <=> CH2O(18) + CH3CHO(34)
+Arrhenius(A=(5.43e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [CO_rad;XH_s_Rrad] for rate rule [CO_rad/NonDe;Cmethyl_Orad]
+Euclidian distance = 2.82842712475
+Multiplied by reaction path degeneracy 3.0
+family: Disproportionation
+Direction: forward
+Violation factor: 5.16
+Violation condition: 1500.0 K, 1.0 bar
+
+C2H5(28) + CH3CO(32) <=> C2H4(27) + CH3CHO(34)
+Arrhenius(A=(5.43e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [CO_rad;XH_s_Rrad] for rate rule [CO_rad/NonDe;Cmethyl_Csrad]
+Euclidian distance = 2.82842712475
+Multiplied by reaction path degeneracy 3.0
+family: Disproportionation
+Direction: forward
+Violation factor: 5.41
+Violation condition: 800.0 K, 1.0 bar
+
+C2H5(28) + CH3CO(32) <=> C2H4(27) + CH3CHO(34)
+Arrhenius(A=(5.43e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [CO_rad;XH_s_Rrad] for rate rule [CO_rad/NonDe;Cmethyl_Csrad]
+Euclidian distance = 2.82842712475
+Multiplied by reaction path degeneracy 3.0
+family: Disproportionation
+Direction: forward
+Violation factor: 4.34
+Violation condition: 1500.0 K, 1.0 bar
+
+[O]C[O](178) + CH3CO(32) <=> OCHO(65) + CH3CHO(34)
+Arrhenius(A=(3.62e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [CO_rad;XH_s_Rrad] for rate rule [CO_rad/NonDe;XH_s_Rrad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+Direction: forward
+Violation factor: 2.87
+Violation condition: 800.0 K, 1.0 bar
+
+[O]C[O](178) + CH3CO(32) <=> OCHO(65) + CH3CHO(34)
+Arrhenius(A=(3.62e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [CO_rad;XH_s_Rrad] for rate rule [CO_rad/NonDe;XH_s_Rrad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+Direction: forward
+Violation factor: 2.30
+Violation condition: 1500.0 K, 1.0 bar
+
+HOCO(36) + CH3CO(32) <=> CO2(13) + CH3CHO(34)
+Arrhenius(A=(1.81e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [CO_rad;O_Rrad] for rate rule [CO_rad/NonDe;O_COrad]
+Euclidian distance = 2.2360679775
+family: Disproportionation
+Direction: forward
+Violation factor: 2.43
+Violation condition: 800.0 K, 1.0 bar
+
+HOCO(36) + CH3CO(32) <=> CO2(13) + CH3CHO(34)
+Arrhenius(A=(1.81e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [CO_rad;O_Rrad] for rate rule [CO_rad/NonDe;O_COrad]
+Euclidian distance = 2.2360679775
+family: Disproportionation
+Direction: forward
+Violation factor: 1.95
+Violation condition: 1500.0 K, 1.0 bar
+
+OCHO(65) + CH3CO(32) <=> CO2(13) + CH3CHO(34)
+Arrhenius(A=(1.81e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [CO_rad;XH_s_Rrad] for rate rule [CO_rad/NonDe;COpri_Orad]
+Euclidian distance = 2.82842712475
+family: Disproportionation
+Direction: forward
+Violation factor: 2.43
+Violation condition: 800.0 K, 1.0 bar
+
+OCHO(65) + CH3CO(32) <=> CO2(13) + CH3CHO(34)
+Arrhenius(A=(1.81e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [CO_rad;XH_s_Rrad] for rate rule [CO_rad/NonDe;COpri_Orad]
+Euclidian distance = 2.82842712475
+family: Disproportionation
+Direction: forward
+Violation factor: 1.95
+Violation condition: 1500.0 K, 1.0 bar
+
+CH2OH(29) + O=[C]OO(361) <=> CH2O(18) + OCHOOH(279)
+Arrhenius(A=(1.81e+14,'cm^3/(mol*s)','*|/',3), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'), Tmin=(300,'K'), Tmax=(2500,'K'))
+Estimated using template [CO_rad;O_Csrad] for rate rule [CO_rad/NonDe;O_Csrad]
+Euclidian distance = 2.0
+family: Disproportionation
+Direction: forward
+Violation factor: 1.55
+Violation condition: 800.0 K, 1.0 bar
+
+CH2OH(29) + O=[C]OO(361) <=> CH2O(18) + OCHOOH(279)
+Arrhenius(A=(1.81e+14,'cm^3/(mol*s)','*|/',3), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'), Tmin=(300,'K'), Tmax=(2500,'K'))
+Estimated using template [CO_rad;O_Csrad] for rate rule [CO_rad/NonDe;O_Csrad]
+Euclidian distance = 2.0
+family: Disproportionation
+Direction: forward
+Violation factor: 1.24
+Violation condition: 1500.0 K, 1.0 bar
+
+CH3O(24) + O=[C]OO(361) <=> CH2O(18) + OCHOOH(279)
+Arrhenius(A=(5.43e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [CO_rad;XH_s_Rrad] for rate rule [CO_rad/NonDe;Cmethyl_Orad]
+Euclidian distance = 2.82842712475
+Multiplied by reaction path degeneracy 3.0
+family: Disproportionation
+Direction: forward
+Violation factor: 4.66
+Violation condition: 800.0 K, 1.0 bar
+
+CH3O(24) + O=[C]OO(361) <=> CH2O(18) + OCHOOH(279)
+Arrhenius(A=(5.43e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [CO_rad;XH_s_Rrad] for rate rule [CO_rad/NonDe;Cmethyl_Orad]
+Euclidian distance = 2.82842712475
+Multiplied by reaction path degeneracy 3.0
+family: Disproportionation
+Direction: forward
+Violation factor: 3.73
+Violation condition: 1500.0 K, 1.0 bar
+
+C2H5(28) + O=[C]OO(361) <=> C2H4(27) + OCHOOH(279)
+Arrhenius(A=(5.43e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [CO_rad;XH_s_Rrad] for rate rule [CO_rad/NonDe;Cmethyl_Csrad]
+Euclidian distance = 2.82842712475
+Multiplied by reaction path degeneracy 3.0
+family: Disproportionation
+Direction: forward
+Violation factor: 4.01
+Violation condition: 800.0 K, 1.0 bar
+
+C2H5(28) + O=[C]OO(361) <=> C2H4(27) + OCHOOH(279)
+Arrhenius(A=(5.43e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [CO_rad;XH_s_Rrad] for rate rule [CO_rad/NonDe;Cmethyl_Csrad]
+Euclidian distance = 2.82842712475
+Multiplied by reaction path degeneracy 3.0
+family: Disproportionation
+Direction: forward
+Violation factor: 3.22
+Violation condition: 1500.0 K, 1.0 bar
+
+[O]C[O](178) + O=[C]OO(361) <=> OCHO(65) + OCHOOH(279)
+Arrhenius(A=(3.62e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [CO_rad;XH_s_Rrad] for rate rule [CO_rad/NonDe;XH_s_Rrad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+Direction: forward
+Violation factor: 2.29
+Violation condition: 800.0 K, 1.0 bar
+
+[O]C[O](178) + O=[C]OO(361) <=> OCHO(65) + OCHOOH(279)
+Arrhenius(A=(3.62e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [CO_rad;XH_s_Rrad] for rate rule [CO_rad/NonDe;XH_s_Rrad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+Direction: forward
+Violation factor: 1.84
+Violation condition: 1500.0 K, 1.0 bar
+
+HOCO(36) + O=[C]OO(361) <=> CO2(13) + OCHOOH(279)
+Arrhenius(A=(1.81e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [CO_rad;O_Rrad] for rate rule [CO_rad/NonDe;O_COrad]
+Euclidian distance = 2.2360679775
+family: Disproportionation
+Direction: forward
+Violation factor: 1.78
+Violation condition: 800.0 K, 1.0 bar
+
+HOCO(36) + O=[C]OO(361) <=> CO2(13) + OCHOOH(279)
+Arrhenius(A=(1.81e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [CO_rad;O_Rrad] for rate rule [CO_rad/NonDe;O_COrad]
+Euclidian distance = 2.2360679775
+family: Disproportionation
+Direction: forward
+Violation factor: 1.43
+Violation condition: 1500.0 K, 1.0 bar
+
+OCHO(65) + O=[C]OO(361) <=> CO2(13) + OCHOOH(279)
+Arrhenius(A=(1.81e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [CO_rad;XH_s_Rrad] for rate rule [CO_rad/NonDe;COpri_Orad]
+Euclidian distance = 2.82842712475
+family: Disproportionation
+Direction: forward
+Violation factor: 1.78
+Violation condition: 800.0 K, 1.0 bar
+
+OCHO(65) + O=[C]OO(361) <=> CO2(13) + OCHOOH(279)
+Arrhenius(A=(1.81e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [CO_rad;XH_s_Rrad] for rate rule [CO_rad/NonDe;COpri_Orad]
+Euclidian distance = 2.82842712475
+family: Disproportionation
+Direction: forward
+Violation factor: 1.43
+Violation condition: 1500.0 K, 1.0 bar
+
+CH2CHO(33) + O(4) => CO2(13) + CH2(17) + H(3)
+Arrhenius(A=(1.58e+14,'cm^3/(mol*s)'), n=0, Ea=(0,'cal/mol'), T0=(1,'K'))
+Kinetic library: ERC-FoundationFuelv0.9
+Direction: forward
+Violation factor: 1.96
+Violation condition: 800.0 K, 1.0 bar
+
+CH2CHO(33) + O(4) => CO2(13) + CH2(17) + H(3)
+Arrhenius(A=(1.58e+14,'cm^3/(mol*s)'), n=0, Ea=(0,'cal/mol'), T0=(1,'K'))
+Kinetic library: ERC-FoundationFuelv0.9
+Direction: forward
+Violation factor: 1.57
+Violation condition: 1500.0 K, 1.0 bar
+
+HCO(14) + C2H5(28) <=> CH3(19) + CH2CHO(33)
+PDepArrhenius(pressures=([0.001,0.01,0.1,1,10,100],'atm'), arrhenius=[Arrhenius(A=(9.2e+17,'cm^3/(mol*s)'), n=-1.2994, Ea=(2505,'cal/mol'), T0=(1,'K')), Arrhenius(A=(1.1e+18,'cm^3/(mol*s)'), n=-1.3206, Ea=(2569,'cal/mol'), T0=(1,'K')), Arrhenius(A=(5.7e+18,'cm^3/(mol*s)'), n=-1.5182, Ea=(3185,'cal/mol'), T0=(1,'K')), Arrhenius(A=(6.5e+21,'cm^3/(mol*s)'), n=-2.3515, Ea=(6023,'cal/mol'), T0=(1,'K')), Arrhenius(A=(1.9e+25,'cm^3/(mol*s)'), n=-3.2495, Ea=(10576,'cal/mol'), T0=(1,'K')), Arrhenius(A=(6.5e+22,'cm^3/(mol*s)'), n=-2.4427, Ea=(12647,'cal/mol'), T0=(1,'K'))])
+Kinetic library: NOx2018
+Direction: reverse
+Violation factor: 1.05
+Violation condition: 800.0 K, 1.0 bar
+
+CH3CHOH(57) + O(4) <=> CH3CHO(34) + OH(5)
+Arrhenius(A=(1e+14,'cm^3/(mol*s)'), n=0, Ea=(0,'cal/mol'), T0=(1,'K'))
+Kinetic library: NOx2018
+Direction: forward
+Violation factor: 1.06
+Violation condition: 800.0 K, 1.0 bar
+
+HCO(14) + CH3CHOH(57) <=> CH2O(18) + CH3CHO(34)
+Arrhenius(A=(1.81e+14,'cm^3/(mol*s)','*|/',3), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'), Tmin=(300,'K'), Tmax=(2500,'K'))
+From training reaction 64 used for CO_pri_rad;O_Csrad
+Exact match found for rate rule [CO_pri_rad;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+Direction: forward
+Violation factor: 1.89
+Violation condition: 800.0 K, 1.0 bar
+
+HCO(14) + CH3CHOH(57) <=> CH2O(18) + CH3CHO(34)
+Arrhenius(A=(1.81e+14,'cm^3/(mol*s)','*|/',3), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'), Tmin=(300,'K'), Tmax=(2500,'K'))
+From training reaction 64 used for CO_pri_rad;O_Csrad
+Exact match found for rate rule [CO_pri_rad;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+Direction: forward
+Violation factor: 1.51
+Violation condition: 1500.0 K, 1.0 bar
+
+HOCO(36) + CH3CHOH(57) <=> CH3CHO(34) + HOCHO(42)
+Arrhenius(A=(1.81e+14,'cm^3/(mol*s)','*|/',3), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'), Tmin=(300,'K'), Tmax=(2500,'K'))
+Estimated using template [CO_rad;O_Csrad] for rate rule [CO_rad/NonDe;O_Csrad]
+Euclidian distance = 2.0
+family: Disproportionation
+Direction: forward
+Violation factor: 2.13
+Violation condition: 800.0 K, 1.0 bar
+
+HOCO(36) + CH3CHOH(57) <=> CH3CHO(34) + HOCHO(42)
+Arrhenius(A=(1.81e+14,'cm^3/(mol*s)','*|/',3), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'), Tmin=(300,'K'), Tmax=(2500,'K'))
+Estimated using template [CO_rad;O_Csrad] for rate rule [CO_rad/NonDe;O_Csrad]
+Euclidian distance = 2.0
+family: Disproportionation
+Direction: forward
+Violation factor: 1.71
+Violation condition: 1500.0 K, 1.0 bar
+
+CH3CO(32) + CH3CHOH(57) <=> CH3CHO(34) + CH3CHO(34)
+Arrhenius(A=(1.81e+14,'cm^3/(mol*s)','*|/',3), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'), Tmin=(300,'K'), Tmax=(2500,'K'))
+Estimated using template [CO_rad;O_Csrad] for rate rule [CO_rad/NonDe;O_Csrad]
+Euclidian distance = 2.0
+family: Disproportionation
+Direction: forward
+Violation factor: 1.93
+Violation condition: 800.0 K, 1.0 bar
+
+CH3CO(32) + CH3CHOH(57) <=> CH3CHO(34) + CH3CHO(34)
+Arrhenius(A=(1.81e+14,'cm^3/(mol*s)','*|/',3), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'), Tmin=(300,'K'), Tmax=(2500,'K'))
+Estimated using template [CO_rad;O_Csrad] for rate rule [CO_rad/NonDe;O_Csrad]
+Euclidian distance = 2.0
+family: Disproportionation
+Direction: forward
+Violation factor: 1.54
+Violation condition: 1500.0 K, 1.0 bar
+
+CH3CHOH(57) + O=[C]OO(361) <=> CH3CHO(34) + OCHOOH(279)
+Arrhenius(A=(1.81e+14,'cm^3/(mol*s)','*|/',3), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'), Tmin=(300,'K'), Tmax=(2500,'K'))
+Estimated using template [CO_rad;O_Csrad] for rate rule [CO_rad/NonDe;O_Csrad]
+Euclidian distance = 2.0
+family: Disproportionation
+Direction: forward
+Violation factor: 1.47
+Violation condition: 800.0 K, 1.0 bar
+
+CH3CHOH(57) + O=[C]OO(361) <=> CH3CHO(34) + OCHOOH(279)
+Arrhenius(A=(1.81e+14,'cm^3/(mol*s)','*|/',3), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'), Tmin=(300,'K'), Tmax=(2500,'K'))
+Estimated using template [CO_rad;O_Csrad] for rate rule [CO_rad/NonDe;O_Csrad]
+Euclidian distance = 2.0
+family: Disproportionation
+Direction: forward
+Violation factor: 1.18
+Violation condition: 1500.0 K, 1.0 bar
+
+HOCO(36) + CH3CHOH(57) <=> HOCHO(42) + CH2CHOH(47)
+Arrhenius(A=(5.43e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [CO_rad;XH_s_Rrad] for rate rule [CO_rad/NonDe;Cmethyl_Csrad]
+Euclidian distance = 2.82842712475
+Multiplied by reaction path degeneracy 3.0
+family: Disproportionation
+Direction: forward
+Violation factor: 6.40
+Violation condition: 800.0 K, 1.0 bar
+
+HOCO(36) + CH3CHOH(57) <=> HOCHO(42) + CH2CHOH(47)
+Arrhenius(A=(5.43e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [CO_rad;XH_s_Rrad] for rate rule [CO_rad/NonDe;Cmethyl_Csrad]
+Euclidian distance = 2.82842712475
+Multiplied by reaction path degeneracy 3.0
+family: Disproportionation
+Direction: forward
+Violation factor: 5.13
+Violation condition: 1500.0 K, 1.0 bar
+
+OCHO(65) + CH3CHOH(57) <=> HOCHO(42) + CH2CHOH(47)
+Arrhenius(A=(1.446e+14,'cm^3/(mol*s)','*|/',3), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'), Tmin=(300,'K'), Tmax=(2500,'K'))
+Estimated using template [O_rad;Cmethyl_Csrad] for rate rule [O_rad/OneDe;Cmethyl_Csrad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 6.0
+family: Disproportionation
+Direction: forward
+Violation factor: 1.70
+Violation condition: 800.0 K, 1.0 bar
+
+OCHO(65) + CH3CHOH(57) <=> HOCHO(42) + CH2CHOH(47)
+Arrhenius(A=(1.446e+14,'cm^3/(mol*s)','*|/',3), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'), Tmin=(300,'K'), Tmax=(2500,'K'))
+Estimated using template [O_rad;Cmethyl_Csrad] for rate rule [O_rad/OneDe;Cmethyl_Csrad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 6.0
+family: Disproportionation
+Direction: forward
+Violation factor: 1.37
+Violation condition: 1500.0 K, 1.0 bar
+
+[O]C[O](178) + CH3CHOH(57) <=> HOCH2O(41) + CH2CHOH(47)
+Arrhenius(A=(1.446e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using average of templates [O_rad;Cmethyl_Csrad] + [O_rad/NonDeC;XH_s_Rrad] for rate rule [O_rad/NonDeC;Cmethyl_Csrad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 6.0
+family: Disproportionation
+Direction: forward
+Violation factor: 1.04
+Violation condition: 800.0 K, 1.0 bar
+
+CH3CO(32) + CH3CHOH(57) <=> CH3CHO(34) + CH2CHOH(47)
+Arrhenius(A=(5.43e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [CO_rad;XH_s_Rrad] for rate rule [CO_rad/NonDe;Cmethyl_Csrad]
+Euclidian distance = 2.82842712475
+Multiplied by reaction path degeneracy 3.0
+family: Disproportionation
+Direction: forward
+Violation factor: 5.78
+Violation condition: 800.0 K, 1.0 bar
+
+CH3CO(32) + CH3CHOH(57) <=> CH3CHO(34) + CH2CHOH(47)
+Arrhenius(A=(5.43e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [CO_rad;XH_s_Rrad] for rate rule [CO_rad/NonDe;Cmethyl_Csrad]
+Euclidian distance = 2.82842712475
+Multiplied by reaction path degeneracy 3.0
+family: Disproportionation
+Direction: forward
+Violation factor: 4.63
+Violation condition: 1500.0 K, 1.0 bar
+
+CH3CHOH(57) + O=[C]OO(361) <=> CH2CHOH(47) + OCHOOH(279)
+Arrhenius(A=(5.43e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [CO_rad;XH_s_Rrad] for rate rule [CO_rad/NonDe;Cmethyl_Csrad]
+Euclidian distance = 2.82842712475
+Multiplied by reaction path degeneracy 3.0
+family: Disproportionation
+Direction: forward
+Violation factor: 4.40
+Violation condition: 800.0 K, 1.0 bar
+
+CH3CHOH(57) + O=[C]OO(361) <=> CH2CHOH(47) + OCHOOH(279)
+Arrhenius(A=(5.43e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [CO_rad;XH_s_Rrad] for rate rule [CO_rad/NonDe;Cmethyl_Csrad]
+Euclidian distance = 2.82842712475
+Multiplied by reaction path degeneracy 3.0
+family: Disproportionation
+Direction: forward
+Violation factor: 3.53
+Violation condition: 1500.0 K, 1.0 bar
+
+HCO(14) + [CH2]C[O](174) <=> CH2O(18) + CH2CHO(33)
+Arrhenius(A=(3.62e+14,'cm^3/(mol*s)','*|/',3), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'), Tmin=(300,'K'), Tmax=(2500,'K'))
+Estimated using an average for rate rule [CO_pri_rad;XH_s_Rrad]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+Direction: forward
+Violation factor: 3.00
+Violation condition: 800.0 K, 1.0 bar
+
+HCO(14) + [CH2]C[O](174) <=> CH2O(18) + CH2CHO(33)
+Arrhenius(A=(3.62e+14,'cm^3/(mol*s)','*|/',3), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'), Tmin=(300,'K'), Tmax=(2500,'K'))
+Estimated using an average for rate rule [CO_pri_rad;XH_s_Rrad]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+Direction: forward
+Violation factor: 2.40
+Violation condition: 1500.0 K, 1.0 bar
+
+HOCO(36) + [CH2]C[O](174) <=> CH2CHO(33) + HOCHO(42)
+Arrhenius(A=(3.62e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [CO_rad;XH_s_Rrad] for rate rule [CO_rad/NonDe;XH_s_Rrad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+Direction: forward
+Violation factor: 3.38
+Violation condition: 800.0 K, 1.0 bar
+
+HOCO(36) + [CH2]C[O](174) <=> CH2CHO(33) + HOCHO(42)
+Arrhenius(A=(3.62e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [CO_rad;XH_s_Rrad] for rate rule [CO_rad/NonDe;XH_s_Rrad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+Direction: forward
+Violation factor: 2.71
+Violation condition: 1500.0 K, 1.0 bar
+
+CH3CO(32) + [CH2]C[O](174) <=> CH2CHO(33) + CH3CHO(34)
+Arrhenius(A=(3.62e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [CO_rad;XH_s_Rrad] for rate rule [CO_rad/NonDe;XH_s_Rrad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+Direction: forward
+Violation factor: 3.08
+Violation condition: 800.0 K, 1.0 bar
+
+CH3CO(32) + [CH2]C[O](174) <=> CH2CHO(33) + CH3CHO(34)
+Arrhenius(A=(3.62e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [CO_rad;XH_s_Rrad] for rate rule [CO_rad/NonDe;XH_s_Rrad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+Direction: forward
+Violation factor: 2.47
+Violation condition: 1500.0 K, 1.0 bar
+
+[CH2]C[O](174) + O=[C]OO(361) <=> CH2CHO(33) + OCHOOH(279)
+Arrhenius(A=(3.62e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [CO_rad;XH_s_Rrad] for rate rule [CO_rad/NonDe;XH_s_Rrad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+Direction: forward
+Violation factor: 2.42
+Violation condition: 800.0 K, 1.0 bar
+
+[CH2]C[O](174) + O=[C]OO(361) <=> CH2CHO(33) + OCHOOH(279)
+Arrhenius(A=(3.62e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [CO_rad;XH_s_Rrad] for rate rule [CO_rad/NonDe;XH_s_Rrad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+Direction: forward
+Violation factor: 1.94
+Violation condition: 1500.0 K, 1.0 bar
+
+oxiranyl(2816) + HCO(14) <=> oxirane(2605) + CO(12)
+Arrhenius(A=(1.2e+14,'cm^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [C_sec_rad;HCO] for rate rule [C_rad/H/CsO;HCO]
+Euclidian distance = 2.0
+family: CO_Disproportionation
+Direction: forward
+Violation factor: 1.43
+Violation condition: 800.0 K, 1.0 bar
+
+oxiranyl(2816) + HCO(14) <=> oxirane(2605) + CO(12)
+Arrhenius(A=(1.2e+14,'cm^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [C_sec_rad;HCO] for rate rule [C_rad/H/CsO;HCO]
+Euclidian distance = 2.0
+family: CO_Disproportionation
+Direction: forward
+Violation factor: 1.15
+Violation condition: 1500.0 K, 1.0 bar
+
+HOCH2CHOH(2177) + HCO(14) <=> HOCH2CHO(2822) + CH2O(18)
+Arrhenius(A=(1.81e+14,'cm^3/(mol*s)','*|/',3), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'), Tmin=(300,'K'), Tmax=(2500,'K'))
+From training reaction 64 used for CO_pri_rad;O_Csrad
+Exact match found for rate rule [CO_pri_rad;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+Direction: forward
+Violation factor: 1.37
+Violation condition: 800.0 K, 1.0 bar
+
+HOCH2CHOH(2177) + HCO(14) <=> HOCH2CHO(2822) + CH2O(18)
+Arrhenius(A=(1.81e+14,'cm^3/(mol*s)','*|/',3), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'), Tmin=(300,'K'), Tmax=(2500,'K'))
+From training reaction 64 used for CO_pri_rad;O_Csrad
+Exact match found for rate rule [CO_pri_rad;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+Direction: forward
+Violation factor: 1.10
+Violation condition: 1500.0 K, 1.0 bar
+
+HOCH2CHOH(2177) + HOCO(36) <=> HOCH2CHO(2822) + HOCHO(42)
+Arrhenius(A=(1.81e+14,'cm^3/(mol*s)','*|/',3), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'), Tmin=(300,'K'), Tmax=(2500,'K'))
+Estimated using template [CO_rad;O_Csrad] for rate rule [CO_rad/NonDe;O_Csrad]
+Euclidian distance = 2.0
+family: Disproportionation
+Direction: forward
+Violation factor: 1.57
+Violation condition: 800.0 K, 1.0 bar
+
+HOCH2CHOH(2177) + HOCO(36) <=> HOCH2CHO(2822) + HOCHO(42)
+Arrhenius(A=(1.81e+14,'cm^3/(mol*s)','*|/',3), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'), Tmin=(300,'K'), Tmax=(2500,'K'))
+Estimated using template [CO_rad;O_Csrad] for rate rule [CO_rad/NonDe;O_Csrad]
+Euclidian distance = 2.0
+family: Disproportionation
+Direction: forward
+Violation factor: 1.26
+Violation condition: 1500.0 K, 1.0 bar
+
+HOCH2CHOH(2177) + CH3CO(32) <=> HOCH2CHO(2822) + CH3CHO(34)
+Arrhenius(A=(1.81e+14,'cm^3/(mol*s)','*|/',3), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'), Tmin=(300,'K'), Tmax=(2500,'K'))
+Estimated using template [CO_rad;O_Csrad] for rate rule [CO_rad/NonDe;O_Csrad]
+Euclidian distance = 2.0
+family: Disproportionation
+Direction: forward
+Violation factor: 1.44
+Violation condition: 800.0 K, 1.0 bar
+
+HOCH2CHOH(2177) + CH3CO(32) <=> HOCH2CHO(2822) + CH3CHO(34)
+Arrhenius(A=(1.81e+14,'cm^3/(mol*s)','*|/',3), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'), Tmin=(300,'K'), Tmax=(2500,'K'))
+Estimated using template [CO_rad;O_Csrad] for rate rule [CO_rad/NonDe;O_Csrad]
+Euclidian distance = 2.0
+family: Disproportionation
+Direction: forward
+Violation factor: 1.15
+Violation condition: 1500.0 K, 1.0 bar
+
+HOCH2CHOH(2177) + O=[C]OO(361) <=> HOCH2CHO(2822) + OCHOOH(279)
+Arrhenius(A=(1.81e+14,'cm^3/(mol*s)','*|/',3), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'), Tmin=(300,'K'), Tmax=(2500,'K'))
+Estimated using template [CO_rad;O_Csrad] for rate rule [CO_rad/NonDe;O_Csrad]
+Euclidian distance = 2.0
+family: Disproportionation
+Direction: forward
+Violation factor: 1.17
+Violation condition: 800.0 K, 1.0 bar
+
+O=C[CH]O(3250) + HCO(14) <=> CH2O(18) + glyoxal(3729)
+Arrhenius(A=(1.81e+14,'cm^3/(mol*s)','*|/',3), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'), Tmin=(300,'K'), Tmax=(2500,'K'))
+From training reaction 64 used for CO_pri_rad;O_Csrad
+Exact match found for rate rule [CO_pri_rad;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+Direction: forward
+Violation factor: 1.50
+Violation condition: 800.0 K, 1.0 bar
+
+O=C[CH]O(3250) + HCO(14) <=> CH2O(18) + glyoxal(3729)
+Arrhenius(A=(1.81e+14,'cm^3/(mol*s)','*|/',3), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'), Tmin=(300,'K'), Tmax=(2500,'K'))
+From training reaction 64 used for CO_pri_rad;O_Csrad
+Exact match found for rate rule [CO_pri_rad;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+Direction: forward
+Violation factor: 1.21
+Violation condition: 1500.0 K, 1.0 bar
+
+O=C[CH]O(3250) + HOCO(36) <=> HOCHO(42) + glyoxal(3729)
+Arrhenius(A=(1.81e+14,'cm^3/(mol*s)','*|/',3), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'), Tmin=(300,'K'), Tmax=(2500,'K'))
+Estimated using template [CO_rad;O_Csrad] for rate rule [CO_rad/NonDe;O_Csrad]
+Euclidian distance = 2.0
+family: Disproportionation
+Direction: forward
+Violation factor: 1.72
+Violation condition: 800.0 K, 1.0 bar
+
+O=C[CH]O(3250) + HOCO(36) <=> HOCHO(42) + glyoxal(3729)
+Arrhenius(A=(1.81e+14,'cm^3/(mol*s)','*|/',3), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'), Tmin=(300,'K'), Tmax=(2500,'K'))
+Estimated using template [CO_rad;O_Csrad] for rate rule [CO_rad/NonDe;O_Csrad]
+Euclidian distance = 2.0
+family: Disproportionation
+Direction: forward
+Violation factor: 1.38
+Violation condition: 1500.0 K, 1.0 bar
+
+O=C[CH]O(3250) + CH3CO(32) <=> CH3CHO(34) + glyoxal(3729)
+Arrhenius(A=(1.81e+14,'cm^3/(mol*s)','*|/',3), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'), Tmin=(300,'K'), Tmax=(2500,'K'))
+Estimated using template [CO_rad;O_Csrad] for rate rule [CO_rad/NonDe;O_Csrad]
+Euclidian distance = 2.0
+family: Disproportionation
+Direction: forward
+Violation factor: 1.57
+Violation condition: 800.0 K, 1.0 bar
+
+O=C[CH]O(3250) + CH3CO(32) <=> CH3CHO(34) + glyoxal(3729)
+Arrhenius(A=(1.81e+14,'cm^3/(mol*s)','*|/',3), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'), Tmin=(300,'K'), Tmax=(2500,'K'))
+Estimated using template [CO_rad;O_Csrad] for rate rule [CO_rad/NonDe;O_Csrad]
+Euclidian distance = 2.0
+family: Disproportionation
+Direction: forward
+Violation factor: 1.26
+Violation condition: 1500.0 K, 1.0 bar
+
+O=C[CH]O(3250) + O=[C]OO(361) <=> OCHOOH(279) + glyoxal(3729)
+Arrhenius(A=(1.81e+14,'cm^3/(mol*s)','*|/',3), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'), Tmin=(300,'K'), Tmax=(2500,'K'))
+Estimated using template [CO_rad;O_Csrad] for rate rule [CO_rad/NonDe;O_Csrad]
+Euclidian distance = 2.0
+family: Disproportionation
+Direction: forward
+Violation factor: 1.26
+Violation condition: 800.0 K, 1.0 bar
+
+O=C[CH]O(3250) + O=[C]OO(361) <=> OCHOOH(279) + glyoxal(3729)
+Arrhenius(A=(1.81e+14,'cm^3/(mol*s)','*|/',3), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'), Tmin=(300,'K'), Tmax=(2500,'K'))
+Estimated using template [CO_rad;O_Csrad] for rate rule [CO_rad/NonDe;O_Csrad]
+Euclidian distance = 2.0
+family: Disproportionation
+Direction: forward
+Violation factor: 1.01
+Violation condition: 1500.0 K, 1.0 bar
+
+OCHCO(4517) + CH2OH(29) <=> CH2O(18) + glyoxal(3729)
+Arrhenius(A=(1.81e+14,'cm^3/(mol*s)','*|/',3), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'), Tmin=(300,'K'), Tmax=(2500,'K'))
+Estimated using template [CO_rad;O_Csrad] for rate rule [CO_rad/OneDe;O_Csrad]
+Euclidian distance = 2.0
+family: Disproportionation
+Direction: forward
+Violation factor: 2.24
+Violation condition: 800.0 K, 1.0 bar
+
+OCHCO(4517) + CH2OH(29) <=> CH2O(18) + glyoxal(3729)
+Arrhenius(A=(1.81e+14,'cm^3/(mol*s)','*|/',3), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'), Tmin=(300,'K'), Tmax=(2500,'K'))
+Estimated using template [CO_rad;O_Csrad] for rate rule [CO_rad/OneDe;O_Csrad]
+Euclidian distance = 2.0
+family: Disproportionation
+Direction: forward
+Violation factor: 1.80
+Violation condition: 1500.0 K, 1.0 bar
+
+OCHCO(4517) + CH3O(24) <=> CH2O(18) + glyoxal(3729)
+Arrhenius(A=(5.43e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [CO_rad;XH_s_Rrad] for rate rule [CO_rad/OneDe;Cmethyl_Orad]
+Euclidian distance = 2.82842712475
+Multiplied by reaction path degeneracy 3.0
+family: Disproportionation
+Direction: forward
+Violation factor: 6.73
+Violation condition: 800.0 K, 1.0 bar
+
+OCHCO(4517) + CH3O(24) <=> CH2O(18) + glyoxal(3729)
+Arrhenius(A=(5.43e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [CO_rad;XH_s_Rrad] for rate rule [CO_rad/OneDe;Cmethyl_Orad]
+Euclidian distance = 2.82842712475
+Multiplied by reaction path degeneracy 3.0
+family: Disproportionation
+Direction: forward
+Violation factor: 5.39
+Violation condition: 1500.0 K, 1.0 bar
+
+OCHCO(4517) + C2H5(28) <=> C2H4(27) + glyoxal(3729)
+Arrhenius(A=(5.43e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [CO_rad;XH_s_Rrad] for rate rule [CO_rad/OneDe;Cmethyl_Csrad]
+Euclidian distance = 2.82842712475
+Multiplied by reaction path degeneracy 3.0
+family: Disproportionation
+Direction: forward
+Violation factor: 5.65
+Violation condition: 800.0 K, 1.0 bar
+
+OCHCO(4517) + C2H5(28) <=> C2H4(27) + glyoxal(3729)
+Arrhenius(A=(5.43e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [CO_rad;XH_s_Rrad] for rate rule [CO_rad/OneDe;Cmethyl_Csrad]
+Euclidian distance = 2.82842712475
+Multiplied by reaction path degeneracy 3.0
+family: Disproportionation
+Direction: forward
+Violation factor: 4.53
+Violation condition: 1500.0 K, 1.0 bar
+
+OCHCO(4517) + [O]C[O](178) <=> OCHO(65) + glyoxal(3729)
+Arrhenius(A=(3.62e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [CO_rad;XH_s_Rrad] for rate rule [CO_rad/OneDe;XH_s_Rrad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+Direction: forward
+Violation factor: 3.05
+Violation condition: 800.0 K, 1.0 bar
+
+OCHCO(4517) + [O]C[O](178) <=> OCHO(65) + glyoxal(3729)
+Arrhenius(A=(3.62e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [CO_rad;XH_s_Rrad] for rate rule [CO_rad/OneDe;XH_s_Rrad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+Direction: forward
+Violation factor: 2.44
+Violation condition: 1500.0 K, 1.0 bar
+
+OCHCO(4517) + HOCO(36) <=> CO2(13) + glyoxal(3729)
+Arrhenius(A=(1.81e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [CO_rad;O_Rrad] for rate rule [CO_rad/OneDe;O_COrad]
+Euclidian distance = 2.2360679775
+family: Disproportionation
+Direction: forward
+Violation factor: 2.57
+Violation condition: 800.0 K, 1.0 bar
+
+OCHCO(4517) + HOCO(36) <=> CO2(13) + glyoxal(3729)
+Arrhenius(A=(1.81e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [CO_rad;O_Rrad] for rate rule [CO_rad/OneDe;O_COrad]
+Euclidian distance = 2.2360679775
+family: Disproportionation
+Direction: forward
+Violation factor: 2.06
+Violation condition: 1500.0 K, 1.0 bar
+
+OCHCO(4517) + OCHO(65) <=> CO2(13) + glyoxal(3729)
+Arrhenius(A=(1.81e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [CO_rad;XH_s_Rrad] for rate rule [CO_rad/OneDe;COpri_Orad]
+Euclidian distance = 2.82842712475
+family: Disproportionation
+Direction: forward
+Violation factor: 2.57
+Violation condition: 800.0 K, 1.0 bar
+
+OCHCO(4517) + OCHO(65) <=> CO2(13) + glyoxal(3729)
+Arrhenius(A=(1.81e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [CO_rad;XH_s_Rrad] for rate rule [CO_rad/OneDe;COpri_Orad]
+Euclidian distance = 2.82842712475
+family: Disproportionation
+Direction: forward
+Violation factor: 2.06
+Violation condition: 1500.0 K, 1.0 bar
+
+OCHCO(4517) + CH3CHOH(57) <=> CH3CHO(34) + glyoxal(3729)
+Arrhenius(A=(1.81e+14,'cm^3/(mol*s)','*|/',3), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'), Tmin=(300,'K'), Tmax=(2500,'K'))
+Estimated using template [CO_rad;O_Csrad] for rate rule [CO_rad/OneDe;O_Csrad]
+Euclidian distance = 2.0
+family: Disproportionation
+Direction: forward
+Violation factor: 2.04
+Violation condition: 800.0 K, 1.0 bar
+
+OCHCO(4517) + CH3CHOH(57) <=> CH3CHO(34) + glyoxal(3729)
+Arrhenius(A=(1.81e+14,'cm^3/(mol*s)','*|/',3), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'), Tmin=(300,'K'), Tmax=(2500,'K'))
+Estimated using template [CO_rad;O_Csrad] for rate rule [CO_rad/OneDe;O_Csrad]
+Euclidian distance = 2.0
+family: Disproportionation
+Direction: forward
+Violation factor: 1.64
+Violation condition: 1500.0 K, 1.0 bar
+
+OCHCO(4517) + [CH2]C[O](174) <=> CH2CHO(33) + glyoxal(3729)
+Arrhenius(A=(3.62e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [CO_rad;XH_s_Rrad] for rate rule [CO_rad/OneDe;XH_s_Rrad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+Direction: forward
+Violation factor: 3.26
+Violation condition: 800.0 K, 1.0 bar
+
+OCHCO(4517) + [CH2]C[O](174) <=> CH2CHO(33) + glyoxal(3729)
+Arrhenius(A=(3.62e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [CO_rad;XH_s_Rrad] for rate rule [CO_rad/OneDe;XH_s_Rrad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+Direction: forward
+Violation factor: 2.62
+Violation condition: 1500.0 K, 1.0 bar
+
+OCHCO(4517) + CH3CHOH(57) <=> CH2CHOH(47) + glyoxal(3729)
+Arrhenius(A=(5.43e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [CO_rad;XH_s_Rrad] for rate rule [CO_rad/OneDe;Cmethyl_Csrad]
+Euclidian distance = 2.82842712475
+Multiplied by reaction path degeneracy 3.0
+family: Disproportionation
+Direction: forward
+Violation factor: 6.12
+Violation condition: 800.0 K, 1.0 bar
+
+OCHCO(4517) + CH3CHOH(57) <=> CH2CHOH(47) + glyoxal(3729)
+Arrhenius(A=(5.43e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [CO_rad;XH_s_Rrad] for rate rule [CO_rad/OneDe;Cmethyl_Csrad]
+Euclidian distance = 2.82842712475
+Multiplied by reaction path degeneracy 3.0
+family: Disproportionation
+Direction: forward
+Violation factor: 4.91
+Violation condition: 1500.0 K, 1.0 bar
+
+OCHCO(4517) + HOCH2CHOH(2177) <=> HOCH2CHO(2822) + glyoxal(3729)
+Arrhenius(A=(1.81e+14,'cm^3/(mol*s)','*|/',3), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'), Tmin=(300,'K'), Tmax=(2500,'K'))
+Estimated using template [CO_rad;O_Csrad] for rate rule [CO_rad/OneDe;O_Csrad]
+Euclidian distance = 2.0
+family: Disproportionation
+Direction: forward
+Violation factor: 1.54
+Violation condition: 800.0 K, 1.0 bar
+
+OCHCO(4517) + HOCH2CHOH(2177) <=> HOCH2CHO(2822) + glyoxal(3729)
+Arrhenius(A=(1.81e+14,'cm^3/(mol*s)','*|/',3), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'), Tmin=(300,'K'), Tmax=(2500,'K'))
+Estimated using template [CO_rad;O_Csrad] for rate rule [CO_rad/OneDe;O_Csrad]
+Euclidian distance = 2.0
+family: Disproportionation
+Direction: forward
+Violation factor: 1.24
+Violation condition: 1500.0 K, 1.0 bar
+
+O=C[CH]O(3250) + OCHCO(4517) <=> glyoxal(3729) + glyoxal(3729)
+Arrhenius(A=(1.81e+14,'cm^3/(mol*s)','*|/',3), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'), Tmin=(300,'K'), Tmax=(2500,'K'))
+Estimated using template [CO_rad;O_Csrad] for rate rule [CO_rad/OneDe;O_Csrad]
+Euclidian distance = 2.0
+family: Disproportionation
+Direction: forward
+Violation factor: 1.68
+Violation condition: 800.0 K, 1.0 bar
+
+O=C[CH]O(3250) + OCHCO(4517) <=> glyoxal(3729) + glyoxal(3729)
+Arrhenius(A=(1.81e+14,'cm^3/(mol*s)','*|/',3), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'), Tmin=(300,'K'), Tmax=(2500,'K'))
+Estimated using template [CO_rad;O_Csrad] for rate rule [CO_rad/OneDe;O_Csrad]
+Euclidian distance = 2.0
+family: Disproportionation
+Direction: forward
+Violation factor: 1.35
+Violation condition: 1500.0 K, 1.0 bar
+

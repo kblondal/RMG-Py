@@ -1,0 +1,33 @@
+Saving current model core to Chemkin file...
+Chemkin file contains 1361 reactions.
+Saving verbose version of Chemkin file...
+Chemkin file contains 1361 reactions.
+Saving current model core and edge to Chemkin file...
+Chemkin file contains 5046 reactions.
+Saving verbose version of Chemkin file...
+Chemkin file contains 5046 reactions.
+Saving current model core to HTML file...
+Saving current model edge to HTML file...
+Updating RMG execution statistics...
+    Execution time (DD:HH:MM:SS): 00:00:38:54
+    Memory used: 1355.11 MB
+
+Making seed mechanism...
+Performing final model checks...
+/home/kblondal/Code/Main/RMG-Py/rmgpy/rmg/main.py:981: FutureWarning: `rcond` parameter will change to the default of machine precision times ``max(M, N)`` where M and N are the input matrix dimensions.
+To use the future default and silence this warning we advise to pass `rcond=None`, to keep using the old, explicitly pass `rcond=-1`.
+  p_min=self.Pmin, p_max=self.Pmax)
+
+
+Warning: 74 CORE reactions violate the collision rate limit!
+See the 'collision_rate_violators.log' for details.
+
+
+
+MODEL GENERATION COMPLETED
+
+The final model core has 77 species and 1345 reactions
+The final model edge has 1837 species and 3685 reactions
+
+RMG execution terminated at Mon Feb 25 13:26:24 2019
+
