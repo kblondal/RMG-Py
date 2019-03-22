@@ -1264,7 +1264,7 @@ class ThermoDatabase(object):
     def setDeltaAtomicAdsorptionEnergies(self, bindingEnergies):
         """
         Sets and stores the change in atomic binding energy between
-        the desired and the Ni(111) default.
+        the desired and the Pt(111) default.
 
         :param bindingEnergies: the required binding energies
         :return: None (stores result in self.deltaAtomicAdsorptionEnergy)
