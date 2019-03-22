@@ -1264,7 +1264,7 @@ class ThermoDatabase(object):
     def setDeltaAtomicAdsorptionEnergies(self, bindingEnergies):
         """
         Sets and stores the change in atomic binding energy between
-        the desired and the Ni(111) default.
+        the desired and the Pt(111) default.
 
         :param bindingEnergies: the required binding energies
         :return: None (stores result in self.deltaAtomicAdsorptionEnergy)
@@ -1280,9 +1280,9 @@ class ThermoDatabase(object):
         # These are for Pt(111), based on DFT results by Jelena Jelic and Felix Studt at Karlsruhe Institute of Technology
         deltaAtomicAdosrptionEnergy = {
             'C': rmgpy.quantity.Energy(-6.750, 'eV/molecule'),
-            'H': rmgpy.quantity.Energy(-0.240, 'eV/molecule'), 
-            'O': rmgpy.quantity.Energy(-1.030, 'eV/molecule'),
-            'N': rmgpy.quantity.Energy(0.525, 'eV/molecule')
+            'H': rmgpy.quantity.Energy(-2.479, 'eV/molecule'),
+            'O': rmgpy.quantity.Energy(-3.586, 'eV/molecule'),
+            'N': rmgpy.quantity.Energy(-4.352, 'eV/molecule'),
         }
         for element in 'CHO':
             deltaAtomicAdosrptionEnergy[element].value_si =  bindingEnergies[element].value_si - deltaAtomicAdosrptionEnergy[element].value_si
