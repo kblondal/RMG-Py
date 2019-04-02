@@ -1272,11 +1272,11 @@ class ThermoDatabase(object):
         # this depends on the two metal surfaces, the reference one
         # used in the database of adsorption energies, and the desired surface
         # These are the reference ones, Ni(111), from Blaylock's supplementary material
-        deltaAtomicAdosrptionEnergy = {
-            'C': rmgpy.quantity.Energy(-5.997, 'eV/molecule'),
-            'H': rmgpy.quantity.Energy(-2.778, 'eV/molecule'),
-            'O': rmgpy.quantity.Energy(-4.485, 'eV/molecule')
-        }
+        # deltaAtomicAdosrptionEnergy = {
+        #     'C': rmgpy.quantity.Energy(-5.997, 'eV/molecule'),
+        #     'H': rmgpy.quantity.Energy(-2.778, 'eV/molecule'),
+        #     'O': rmgpy.quantity.Energy(-4.485, 'eV/molecule')
+        # }
         # These are for Pt, from Katrin
         deltaAtomicAdosrptionEnergy = {
             'C': rmgpy.quantity.Energy(-6.750, 'eV/molecule'),
@@ -1284,7 +1284,7 @@ class ThermoDatabase(object):
             'O': rmgpy.quantity.Energy(-3.586, 'eV/molecule'),
             'N': rmgpy.quantity.Energy(-4.352, 'eV/molecule'),
         }
-        for element in 'CHO':
+        for element in 'CHON':
             deltaAtomicAdosrptionEnergy[element].value_si =  bindingEnergies[element].value_si - deltaAtomicAdosrptionEnergy[element].value_si
         self.deltaAtomicAdsorptionEnergy = deltaAtomicAdosrptionEnergy
 
@@ -1332,7 +1332,7 @@ class ThermoDatabase(object):
             findCp0andCpInf(species, thermo)
 
         ## now edit the adsorptionThermo using LSR
-        for element in 'CHO':
+        for element in 'CHON':
             changeInBindingEnergy = self.deltaAtomicAdsorptionEnergy[element].value_si * normalizedBonds[element]
             thermo.H298.value_si += changeInBindingEnergy
         thermo.comment += " Binding energy corrected by LSR."
@@ -1379,6 +1379,9 @@ class ThermoDatabase(object):
                     bondedAtom.incrementRadical()
                     bondedAtom.incrementRadical()
                 elif bond.isTriple():
+                    bondedAtom.incrementRadical()
+                    bondedAtom.incrementLonePairs()
+                elif bond.isQuadruple():
                     bondedAtom.incrementRadical()
                     bondedAtom.incrementLonePairs()
                 else:
