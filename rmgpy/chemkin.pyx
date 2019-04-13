@@ -54,6 +54,7 @@ from rmgpy.molecule import Molecule
 from rmgpy.molecule.util import retrieveElementCount
 from rmgpy.transport import TransportData
 from rmgpy.exceptions import ChemkinError
+#from rmgpy.rmg.input
 
 __chemkin_reaction_count = None
     
@@ -1362,6 +1363,22 @@ def saveHTMLFile(path, readComments = True):
     saveOutputHTML(outputPath, model)
 
 ################################################################################
+
+def getSiteDensity(path):
+    """
+    Read the surface site density from the first surface reactor system (assume it is the same for all of them, and that it is in units of mol/cm2).
+    """
+    inputPath = os.path.join(path,'input.py')
+    with open(inputPath,'r') as inputfile:
+        for line in inputfile:
+            if "surfaceSiteDensity" in line:
+                bits = line.split('=')
+                bits = bits[1].split(',')
+                surf_site_density = bits[0].strip().replace('(','').replace('e','E')
+                break #stop after reading the density from the first reactor system
+    return surf_site_density            
+
+
 def getSpeciesIdentifier(species):
     """
     Return a string identifier for the provided `species` that can be used in a
@@ -2001,8 +2018,11 @@ def saveChemkinSurfaceFile(path, species, reactions, verbose = True, checkForDup
         f.write('SITE/{}/'.format(surface_name))
     else:
         f.write('SITE ')
-    f.write('  SDEN/2.9E-9/\n')
     # todo: add surface site density from reactor simulation
+    inputfilepath1=os.path.split(path); inputfilepath=os.path.split(inputfilepath1[0])
+    surf_site_density=getSiteDensity(inputfilepath[0])
+    f.write('  SDEN/' + str(surf_site_density) + '/\n')
+    #f.write('  SDEN/2.9E-9/\n')
     for spec in sorted_species:
         label = getSpeciesIdentifier(spec)
         # todo: add /2/ to bidentate species etc.
