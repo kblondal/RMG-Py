@@ -1878,7 +1878,7 @@ class KineticsFamily(Database):
             # ToDo: try to remove this hard-coding of reaction family name..
             if 'adsorption' in self.label.lower() and forward:
                 if moleculesA[0].containsSurfaceSite() and moleculesB[0].containsSurfaceSite():
-                    "Can't adsorb something that's already adsorbed. Both reactants either contain or are a surface site"
+                    # Can't adsorb something that's already adsorbed. Both reactants either contain or are a surface site.
                     return []
 
             # Iterate over all resonance isomers of the reactant
