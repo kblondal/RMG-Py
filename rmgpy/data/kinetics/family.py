@@ -2116,7 +2116,7 @@ class KineticsFamily(Database):
                         prunedList.append(reaction)
                         break
                 else:  # didn't break, so all species still adsorbed
-                    logging.info("Removing {} reaction {!s} with no desorbed species".format(self.label, reaction))
+                    logging.debug("Removing {0} reaction {1!s} with no desorbed species".format(self.label, reaction))
                     continue  # to next reaction immediately
             rxnList = prunedList
 
