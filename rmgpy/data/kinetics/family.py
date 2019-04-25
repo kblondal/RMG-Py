@@ -1936,7 +1936,7 @@ class KineticsFamily(Database):
             """
             templateSites = [r for r in template_reactants if r.isSurfaceSite()]
             if len(templateSites) == 2:
-                "Two surface sites in template. If there's a site in the reactants, use it twice."
+                # Two surface sites in template. If there's a site in the reactants, use it twice.
                 if reactants[0][0].isSurfaceSite() and not reactants[1][0].isSurfaceSite():
                     site1 = reactants[0][0]
                     site2 = deepcopy(reactants[0][0])
@@ -1948,11 +1948,11 @@ class KineticsFamily(Database):
                     adsorbateMolecules = reactants[0]
                     reactants.append([site2])
                 else:
-                    "No reaction with these reactants in this template"
+                    # No reaction with these reactants in this template
                     return []
 
                 if adsorbateMolecules[0].containsSurfaceSite():
-                    "An adsorbed molecule can't adsorb again"
+                    # An adsorbed molecule can't adsorb again
                     return []
 
                 for r in template_reactants:
@@ -1977,7 +1977,8 @@ class KineticsFamily(Database):
                                 rxn = self.__createReaction(reactantStructures, productStructures, forward)
                                 if rxn: rxnList.append(rxn)
             else:
-                raise NotImplementedError("Termolecluar template not containing two surface sites")
+                # __generateReactions was called with mismatched number of reactants and templates
+                return []
 
         elif len(reactants) == 3 and len(template_reactants) == 3:
             """
@@ -2010,11 +2011,11 @@ class KineticsFamily(Database):
                     site1, site2 = m2, m3
                     adsorbateMolecules = reactants[0]
                 else:
-                    "Three reactants not containing two surface sites"
+                    # Three reactants not containing two surface sites
                     return []
 
                 if adsorbateMolecules[0].containsSurfaceSite():
-                    "An adsorbed molecule can't adsorb again"
+                    # An adsorbed molecule can't adsorb again
                     return []
 
                 for r in template_reactants:
