@@ -928,7 +928,7 @@ class Molecule(Graph):
 
     def isSurfaceSite(self):
         "Returns ``True`` iff the molecule is nothing but a surface site 'X'."
-        return (len(self.atoms) == 1 and self.atoms[0].isSurfaceSite())
+        return len(self.atoms) == 1 and self.atoms[0].isSurfaceSite()
 
     def removeAtom(self, atom):
         """
@@ -1087,13 +1087,13 @@ class Molecule(Graph):
         state to return, e.g. two radicals or a lone pair when a "double-bond" 
         desorbs, so we return both in an iterable.
         """
-        mol = cython.declare(Molecule)
+        cython.declare(mol=Molecule)
         mol = self.copy(deep=True)
-        toDelete = []
+        to_delete = []
         for atom in mol.atoms:
             if atom.element.symbol=='X':
-                toDelete.append(atom)
-        for atom in toDelete:
+                to_delete.append(atom)
+        for atom in to_delete:
             for bonded, bond in atom.bonds.iteritems():
                 if bond.isSingle():
                     bonded.incrementRadical()
@@ -1104,11 +1104,11 @@ class Molecule(Graph):
                     bonded.incrementRadical()
                     bonded.incrementLonePairs()
                 elif bond.isQuadruple():
-                    bonded.incrementLonePairs()
+                    bonded.incrementRadical()
+                    bonded.incrementRadical()
                     bonded.incrementLonePairs()
             mol.removeAtom(atom)
         raise NotImplementedError("Code not finished?")
-            
 
     def copy(self, deep=False):
         """

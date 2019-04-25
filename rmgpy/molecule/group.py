@@ -556,16 +556,18 @@ class GroupAtom(Vertex):
         defaultLonePairs={'H': 0,
                           'D': 0,
                           'T': 0,
-                          'He':1,
+                          'He': 1,
                           'C': 0,
                           'O': 2,
                           'N': 1,
                           'Si':0,
                           'S': 2,
-                          'Ne':4,
-                          'Cl':3,
-                          'Ar':4,
-                          'X':0,
+                          'Ne': 4,
+                          'Cl': 3,
+                          'F': 3,
+                          'I': 3,
+                          'Ar': 4,
+                          'X': 0,
         }
 
         for elementLabel in allElements:
@@ -1063,7 +1065,7 @@ class Group(Graph):
 
     def isSurfaceSite(self):
         "Returns ``True`` iff the group is nothing but a surface site 'X'."
-        return (len(self.atoms) == 1 and self.atoms[0].isSurfaceSite())
+        return len(self.atoms) == 1 and self.atoms[0].isSurfaceSite()
 
     def removeAtom(self, atom):
         """
